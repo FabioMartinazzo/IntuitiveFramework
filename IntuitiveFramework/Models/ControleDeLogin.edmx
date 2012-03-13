@@ -1,0 +1,784 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ControleDeLoginModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ControleDeLoginModelStoreContainer">
+          <EntitySet Name="Estabelecimentos" EntityType="ControleDeLoginModel.Store.Estabelecimentos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Grupos" EntityType="ControleDeLoginModel.Store.Grupos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="GrupoUsuarios" EntityType="ControleDeLoginModel.Store.GrupoUsuarios" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="GrupoVisoes" EntityType="ControleDeLoginModel.Store.GrupoVisoes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Permissao" EntityType="ControleDeLoginModel.Store.Permissao" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sistemas" EntityType="ControleDeLoginModel.Store.Sistemas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TipoPermissoesPorVisao" EntityType="ControleDeLoginModel.Store.TipoPermissoesPorVisao" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Usuarios" EntityType="ControleDeLoginModel.Store.Usuarios" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Visao" EntityType="ControleDeLoginModel.Store.Visao" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Estabelecimentos_Sistemas" Association="ControleDeLoginModel.Store.FK_Estabelecimentos_Sistemas">
+            <End Role="Sistemas" EntitySet="Sistemas" />
+            <End Role="Estabelecimentos" EntitySet="Estabelecimentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grupos_Sistemas" Association="ControleDeLoginModel.Store.FK_Grupos_Sistemas">
+            <End Role="Sistemas" EntitySet="Sistemas" />
+            <End Role="Grupos" EntitySet="Grupos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GrupoUsuarios_Estabelecimentos" Association="ControleDeLoginModel.Store.FK_GrupoUsuarios_Estabelecimentos">
+            <End Role="Estabelecimentos" EntitySet="Estabelecimentos" />
+            <End Role="GrupoUsuarios" EntitySet="GrupoUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GrupoUsuarios_Grupos" Association="ControleDeLoginModel.Store.FK_GrupoUsuarios_Grupos">
+            <End Role="Grupos" EntitySet="Grupos" />
+            <End Role="GrupoUsuarios" EntitySet="GrupoUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GrupoUsuarios_Usuarios" Association="ControleDeLoginModel.Store.FK_GrupoUsuarios_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="GrupoUsuarios" EntitySet="GrupoUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GrupoVisoes_Grupos" Association="ControleDeLoginModel.Store.FK_GrupoVisoes_Grupos">
+            <End Role="Grupos" EntitySet="Grupos" />
+            <End Role="GrupoVisoes" EntitySet="GrupoVisoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GrupoVisoes_Visao" Association="ControleDeLoginModel.Store.FK_GrupoVisoes_Visao">
+            <End Role="Visao" EntitySet="Visao" />
+            <End Role="GrupoVisoes" EntitySet="GrupoVisoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permissao_GrupoVisoes" Association="ControleDeLoginModel.Store.FK_Permissao_GrupoVisoes">
+            <End Role="GrupoVisoes" EntitySet="GrupoVisoes" />
+            <End Role="Permissao" EntitySet="Permissao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Sistemas" Association="ControleDeLoginModel.Store.FK_Usuarios_Sistemas">
+            <End Role="Sistemas" EntitySet="Sistemas" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Visao_Sistemas" Association="ControleDeLoginModel.Store.FK_Visao_Sistemas">
+            <End Role="Sistemas" EntitySet="Sistemas" />
+            <End Role="Visao" EntitySet="Visao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Visao_TipoPermissoesPorVisao" Association="ControleDeLoginModel.Store.FK_Visao_TipoPermissoesPorVisao">
+            <End Role="TipoPermissoesPorVisao" EntitySet="TipoPermissoesPorVisao" />
+            <End Role="Visao" EntitySet="Visao" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Estabelecimentos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RazaoSocial" Type="varchar" MaxLength="300" />
+          <Property Name="NomeFantasia" Type="varchar" MaxLength="300" />
+          <Property Name="CNPJ" Type="varchar" Nullable="false" MaxLength="18" />
+          <Property Name="InscricaoEstadual" Type="varchar" MaxLength="18" />
+          <Property Name="InscricaoMunicipal" Type="varchar" MaxLength="18" />
+          <Property Name="Logradouro" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Endereco" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="Bairro" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Cidade" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Estado" Type="varchar" Nullable="false" MaxLength="2" />
+          <Property Name="CEP" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="Fone" Type="varchar" Nullable="false" MaxLength="14" />
+          <Property Name="Fax" Type="varchar" MaxLength="14" />
+          <Property Name="Celular" Type="varchar" MaxLength="14" />
+          <Property Name="Email" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Numero" Type="int" Nullable="false" />
+          <Property Name="Complemento" Type="varchar" MaxLength="50" />
+          <Property Name="CodMunicipio" Type="int" Nullable="false" />
+          <Property Name="AliasConnection" Type="varchar" MaxLength="50" />
+          <Property Name="IdSistema" Type="int" Nullable="false" />
+          <Property Name="LogoTop" Type="varbinary(max)" />
+          <Property Name="Logo" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Grupos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdSistema" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GrupoUsuarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
+          <Property Name="IdGrupo" Type="int" Nullable="false" />
+          <Property Name="IdEstabelecimento" Type="int" />
+        </EntityType>
+        <EntityType Name="GrupoVisoes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdGrupo" Type="int" Nullable="false" />
+          <Property Name="IdVisao" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Permissao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo" Type="int" Nullable="false" />
+          <Property Name="IdGrupoVisoes" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sistemas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TipoPermissoesPorVisao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Create" Type="bit" Nullable="false" />
+          <Property Name="Delete" Type="bit" Nullable="false" />
+          <Property Name="Edit" Type="bit" Nullable="false" />
+          <Property Name="List" Type="bit" Nullable="false" />
+          <Property Name="Details" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="Nome" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Senha" Type="varchar" Nullable="false" MaxLength="1024" />
+          <Property Name="DataCriacao" Type="date" Nullable="false" />
+          <Property Name="DataInativacao" Type="date" />
+          <Property Name="Bloqueado" Type="bit" Nullable="false" />
+          <Property Name="IdSistema" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Visao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdTipoPermissoesPorVisao" Type="int" Nullable="false" />
+          <Property Name="IdSistema" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Estabelecimentos_Sistemas">
+          <End Role="Sistemas" Type="ControleDeLoginModel.Store.Sistemas" Multiplicity="1" />
+          <End Role="Estabelecimentos" Type="ControleDeLoginModel.Store.Estabelecimentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sistemas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Estabelecimentos">
+              <PropertyRef Name="IdSistema" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grupos_Sistemas">
+          <End Role="Sistemas" Type="ControleDeLoginModel.Store.Sistemas" Multiplicity="1" />
+          <End Role="Grupos" Type="ControleDeLoginModel.Store.Grupos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sistemas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Grupos">
+              <PropertyRef Name="IdSistema" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GrupoUsuarios_Estabelecimentos">
+          <End Role="Estabelecimentos" Type="ControleDeLoginModel.Store.Estabelecimentos" Multiplicity="0..1" />
+          <End Role="GrupoUsuarios" Type="ControleDeLoginModel.Store.GrupoUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estabelecimentos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GrupoUsuarios">
+              <PropertyRef Name="IdEstabelecimento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GrupoUsuarios_Grupos">
+          <End Role="Grupos" Type="ControleDeLoginModel.Store.Grupos" Multiplicity="1" />
+          <End Role="GrupoUsuarios" Type="ControleDeLoginModel.Store.GrupoUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GrupoUsuarios">
+              <PropertyRef Name="IdGrupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GrupoUsuarios_Usuarios">
+          <End Role="Usuarios" Type="ControleDeLoginModel.Store.Usuarios" Multiplicity="1" />
+          <End Role="GrupoUsuarios" Type="ControleDeLoginModel.Store.GrupoUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GrupoUsuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GrupoVisoes_Grupos">
+          <End Role="Grupos" Type="ControleDeLoginModel.Store.Grupos" Multiplicity="1" />
+          <End Role="GrupoVisoes" Type="ControleDeLoginModel.Store.GrupoVisoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GrupoVisoes">
+              <PropertyRef Name="IdGrupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GrupoVisoes_Visao">
+          <End Role="Visao" Type="ControleDeLoginModel.Store.Visao" Multiplicity="1" />
+          <End Role="GrupoVisoes" Type="ControleDeLoginModel.Store.GrupoVisoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Visao">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GrupoVisoes">
+              <PropertyRef Name="IdVisao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Permissao_GrupoVisoes">
+          <End Role="GrupoVisoes" Type="ControleDeLoginModel.Store.GrupoVisoes" Multiplicity="1" />
+          <End Role="Permissao" Type="ControleDeLoginModel.Store.Permissao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GrupoVisoes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Permissao">
+              <PropertyRef Name="IdGrupoVisoes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_Sistemas">
+          <End Role="Sistemas" Type="ControleDeLoginModel.Store.Sistemas" Multiplicity="1" />
+          <End Role="Usuarios" Type="ControleDeLoginModel.Store.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sistemas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="IdSistema" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Visao_Sistemas">
+          <End Role="Sistemas" Type="ControleDeLoginModel.Store.Sistemas" Multiplicity="1" />
+          <End Role="Visao" Type="ControleDeLoginModel.Store.Visao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sistemas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Visao">
+              <PropertyRef Name="IdSistema" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Visao_TipoPermissoesPorVisao">
+          <End Role="TipoPermissoesPorVisao" Type="ControleDeLoginModel.Store.TipoPermissoesPorVisao" Multiplicity="1" />
+          <End Role="Visao" Type="ControleDeLoginModel.Store.Visao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPermissoesPorVisao">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Visao">
+              <PropertyRef Name="IdTipoPermissoesPorVisao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ControleDeLoginModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ControleDeLoginEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Estabelecimentos" EntityType="ControleDeLoginModel.Estabelecimentos" />
+          <EntitySet Name="Grupos" EntityType="ControleDeLoginModel.Grupos" />
+          <EntitySet Name="GrupoUsuarios" EntityType="ControleDeLoginModel.GrupoUsuarios" />
+          <EntitySet Name="GrupoVisoes" EntityType="ControleDeLoginModel.GrupoVisoes" />
+          <EntitySet Name="Permissao" EntityType="ControleDeLoginModel.Permissao" />
+          <EntitySet Name="Sistemas" EntityType="ControleDeLoginModel.Sistemas" />
+          <EntitySet Name="TipoPermissoesPorVisao" EntityType="ControleDeLoginModel.TipoPermissoesPorVisao" />
+          <EntitySet Name="Usuarios" EntityType="ControleDeLoginModel.Usuarios" />
+          <EntitySet Name="Visao" EntityType="ControleDeLoginModel.Visao" />
+          <AssociationSet Name="FK_Estabelecimentos_Sistemas" Association="ControleDeLoginModel.FK_Estabelecimentos_Sistemas">
+            <End Role="Sistemas" EntitySet="Sistemas" />
+            <End Role="Estabelecimentos" EntitySet="Estabelecimentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GrupoUsuarios_Estabelecimentos" Association="ControleDeLoginModel.FK_GrupoUsuarios_Estabelecimentos">
+            <End Role="Estabelecimentos" EntitySet="Estabelecimentos" />
+            <End Role="GrupoUsuarios" EntitySet="GrupoUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grupos_Sistemas" Association="ControleDeLoginModel.FK_Grupos_Sistemas">
+            <End Role="Sistemas" EntitySet="Sistemas" />
+            <End Role="Grupos" EntitySet="Grupos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GrupoUsuarios_Grupos" Association="ControleDeLoginModel.FK_GrupoUsuarios_Grupos">
+            <End Role="Grupos" EntitySet="Grupos" />
+            <End Role="GrupoUsuarios" EntitySet="GrupoUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GrupoVisoes_Grupos" Association="ControleDeLoginModel.FK_GrupoVisoes_Grupos">
+            <End Role="Grupos" EntitySet="Grupos" />
+            <End Role="GrupoVisoes" EntitySet="GrupoVisoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GrupoUsuarios_Usuarios" Association="ControleDeLoginModel.FK_GrupoUsuarios_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="GrupoUsuarios" EntitySet="GrupoUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GrupoVisoes_Visao" Association="ControleDeLoginModel.FK_GrupoVisoes_Visao">
+            <End Role="Visao" EntitySet="Visao" />
+            <End Role="GrupoVisoes" EntitySet="GrupoVisoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permissao_GrupoVisoes" Association="ControleDeLoginModel.FK_Permissao_GrupoVisoes">
+            <End Role="GrupoVisoes" EntitySet="GrupoVisoes" />
+            <End Role="Permissao" EntitySet="Permissao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Sistemas" Association="ControleDeLoginModel.FK_Usuarios_Sistemas">
+            <End Role="Sistemas" EntitySet="Sistemas" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Visao_Sistemas" Association="ControleDeLoginModel.FK_Visao_Sistemas">
+            <End Role="Sistemas" EntitySet="Sistemas" />
+            <End Role="Visao" EntitySet="Visao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Visao_TipoPermissoesPorVisao" Association="ControleDeLoginModel.FK_Visao_TipoPermissoesPorVisao">
+            <End Role="TipoPermissoesPorVisao" EntitySet="TipoPermissoesPorVisao" />
+            <End Role="Visao" EntitySet="Visao" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Estabelecimentos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RazaoSocial" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="NomeFantasia" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="CNPJ" Type="String" Nullable="false" MaxLength="18" Unicode="false" FixedLength="false" />
+          <Property Name="InscricaoEstadual" Type="String" MaxLength="18" Unicode="false" FixedLength="false" />
+          <Property Name="InscricaoMunicipal" Type="String" MaxLength="18" Unicode="false" FixedLength="false" />
+          <Property Name="Logradouro" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Endereco" Type="String" Nullable="false" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="Bairro" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Cidade" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Estado" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="CEP" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="Fone" Type="String" Nullable="false" MaxLength="14" Unicode="false" FixedLength="false" />
+          <Property Name="Fax" Type="String" MaxLength="14" Unicode="false" FixedLength="false" />
+          <Property Name="Celular" Type="String" MaxLength="14" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Numero" Type="Int32" Nullable="false" />
+          <Property Name="Complemento" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CodMunicipio" Type="Int32" Nullable="false" />
+          <Property Name="AliasConnection" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="IdSistema" Type="Int32" Nullable="false" />
+          <Property Name="LogoTop" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Sistemas" Relationship="ControleDeLoginModel.FK_Estabelecimentos_Sistemas" FromRole="Estabelecimentos" ToRole="Sistemas" />
+          <NavigationProperty Name="GrupoUsuarios" Relationship="ControleDeLoginModel.FK_GrupoUsuarios_Estabelecimentos" FromRole="Estabelecimentos" ToRole="GrupoUsuarios" />
+        </EntityType>
+        <EntityType Name="Grupos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="IdSistema" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Sistemas" Relationship="ControleDeLoginModel.FK_Grupos_Sistemas" FromRole="Grupos" ToRole="Sistemas" />
+          <NavigationProperty Name="GrupoUsuarios" Relationship="ControleDeLoginModel.FK_GrupoUsuarios_Grupos" FromRole="Grupos" ToRole="GrupoUsuarios" />
+          <NavigationProperty Name="GrupoVisoes" Relationship="ControleDeLoginModel.FK_GrupoVisoes_Grupos" FromRole="Grupos" ToRole="GrupoVisoes" />
+        </EntityType>
+        <EntityType Name="GrupoUsuarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="IdGrupo" Type="Int32" Nullable="false" />
+          <Property Name="IdEstabelecimento" Type="Int32" />
+          <NavigationProperty Name="Estabelecimentos" Relationship="ControleDeLoginModel.FK_GrupoUsuarios_Estabelecimentos" FromRole="GrupoUsuarios" ToRole="Estabelecimentos" />
+          <NavigationProperty Name="Grupos" Relationship="ControleDeLoginModel.FK_GrupoUsuarios_Grupos" FromRole="GrupoUsuarios" ToRole="Grupos" />
+          <NavigationProperty Name="Usuarios" Relationship="ControleDeLoginModel.FK_GrupoUsuarios_Usuarios" FromRole="GrupoUsuarios" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="GrupoVisoes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdGrupo" Type="Int32" Nullable="false" />
+          <Property Name="IdVisao" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Grupos" Relationship="ControleDeLoginModel.FK_GrupoVisoes_Grupos" FromRole="GrupoVisoes" ToRole="Grupos" />
+          <NavigationProperty Name="Visao" Relationship="ControleDeLoginModel.FK_GrupoVisoes_Visao" FromRole="GrupoVisoes" ToRole="Visao" />
+          <NavigationProperty Name="Permissao" Relationship="ControleDeLoginModel.FK_Permissao_GrupoVisoes" FromRole="GrupoVisoes" ToRole="Permissao" />
+        </EntityType>
+        <EntityType Name="Permissao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo" Type="Int32" Nullable="false" />
+          <Property Name="IdGrupoVisoes" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="GrupoVisoes" Relationship="ControleDeLoginModel.FK_Permissao_GrupoVisoes" FromRole="Permissao" ToRole="GrupoVisoes" />
+        </EntityType>
+        <EntityType Name="Sistemas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Estabelecimentos" Relationship="ControleDeLoginModel.FK_Estabelecimentos_Sistemas" FromRole="Sistemas" ToRole="Estabelecimentos" />
+          <NavigationProperty Name="Grupos" Relationship="ControleDeLoginModel.FK_Grupos_Sistemas" FromRole="Sistemas" ToRole="Grupos" />
+          <NavigationProperty Name="Usuarios" Relationship="ControleDeLoginModel.FK_Usuarios_Sistemas" FromRole="Sistemas" ToRole="Usuarios" />
+          <NavigationProperty Name="Visao" Relationship="ControleDeLoginModel.FK_Visao_Sistemas" FromRole="Sistemas" ToRole="Visao" />
+        </EntityType>
+        <EntityType Name="TipoPermissoesPorVisao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Create" Type="Boolean" Nullable="false" />
+          <Property Name="Delete" Type="Boolean" Nullable="false" />
+          <Property Name="Edit" Type="Boolean" Nullable="false" />
+          <Property Name="List" Type="Boolean" Nullable="false" />
+          <Property Name="Details" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Visao" Relationship="ControleDeLoginModel.FK_Visao_TipoPermissoesPorVisao" FromRole="TipoPermissoesPorVisao" ToRole="Visao" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Senha" Type="String" Nullable="false" MaxLength="1024" Unicode="false" FixedLength="false" />
+          <Property Name="DataCriacao" Type="DateTime" Nullable="false" />
+          <Property Name="DataInativacao" Type="DateTime" />
+          <Property Name="Bloqueado" Type="Boolean" Nullable="false" />
+          <Property Name="IdSistema" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="GrupoUsuarios" Relationship="ControleDeLoginModel.FK_GrupoUsuarios_Usuarios" FromRole="Usuarios" ToRole="GrupoUsuarios" />
+          <NavigationProperty Name="Sistemas" Relationship="ControleDeLoginModel.FK_Usuarios_Sistemas" FromRole="Usuarios" ToRole="Sistemas" />
+        </EntityType>
+        <EntityType Name="Visao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="IdTipoPermissoesPorVisao" Type="Int32" Nullable="false" />
+          <Property Name="IdSistema" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="GrupoVisoes" Relationship="ControleDeLoginModel.FK_GrupoVisoes_Visao" FromRole="Visao" ToRole="GrupoVisoes" />
+          <NavigationProperty Name="Sistemas" Relationship="ControleDeLoginModel.FK_Visao_Sistemas" FromRole="Visao" ToRole="Sistemas" />
+          <NavigationProperty Name="TipoPermissoesPorVisao" Relationship="ControleDeLoginModel.FK_Visao_TipoPermissoesPorVisao" FromRole="Visao" ToRole="TipoPermissoesPorVisao" />
+        </EntityType>
+        <Association Name="FK_Estabelecimentos_Sistemas">
+          <End Role="Sistemas" Type="ControleDeLoginModel.Sistemas" Multiplicity="1" />
+          <End Role="Estabelecimentos" Type="ControleDeLoginModel.Estabelecimentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sistemas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Estabelecimentos">
+              <PropertyRef Name="IdSistema" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GrupoUsuarios_Estabelecimentos">
+          <End Role="Estabelecimentos" Type="ControleDeLoginModel.Estabelecimentos" Multiplicity="0..1" />
+          <End Role="GrupoUsuarios" Type="ControleDeLoginModel.GrupoUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estabelecimentos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GrupoUsuarios">
+              <PropertyRef Name="IdEstabelecimento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grupos_Sistemas">
+          <End Role="Sistemas" Type="ControleDeLoginModel.Sistemas" Multiplicity="1" />
+          <End Role="Grupos" Type="ControleDeLoginModel.Grupos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sistemas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Grupos">
+              <PropertyRef Name="IdSistema" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GrupoUsuarios_Grupos">
+          <End Role="Grupos" Type="ControleDeLoginModel.Grupos" Multiplicity="1" />
+          <End Role="GrupoUsuarios" Type="ControleDeLoginModel.GrupoUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GrupoUsuarios">
+              <PropertyRef Name="IdGrupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GrupoVisoes_Grupos">
+          <End Role="Grupos" Type="ControleDeLoginModel.Grupos" Multiplicity="1" />
+          <End Role="GrupoVisoes" Type="ControleDeLoginModel.GrupoVisoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GrupoVisoes">
+              <PropertyRef Name="IdGrupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GrupoUsuarios_Usuarios">
+          <End Role="Usuarios" Type="ControleDeLoginModel.Usuarios" Multiplicity="1" />
+          <End Role="GrupoUsuarios" Type="ControleDeLoginModel.GrupoUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GrupoUsuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GrupoVisoes_Visao">
+          <End Role="Visao" Type="ControleDeLoginModel.Visao" Multiplicity="1" />
+          <End Role="GrupoVisoes" Type="ControleDeLoginModel.GrupoVisoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Visao">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GrupoVisoes">
+              <PropertyRef Name="IdVisao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Permissao_GrupoVisoes">
+          <End Role="GrupoVisoes" Type="ControleDeLoginModel.GrupoVisoes" Multiplicity="1" />
+          <End Role="Permissao" Type="ControleDeLoginModel.Permissao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GrupoVisoes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Permissao">
+              <PropertyRef Name="IdGrupoVisoes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_Sistemas">
+          <End Role="Sistemas" Type="ControleDeLoginModel.Sistemas" Multiplicity="1" />
+          <End Role="Usuarios" Type="ControleDeLoginModel.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sistemas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="IdSistema" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Visao_Sistemas">
+          <End Role="Sistemas" Type="ControleDeLoginModel.Sistemas" Multiplicity="1" />
+          <End Role="Visao" Type="ControleDeLoginModel.Visao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sistemas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Visao">
+              <PropertyRef Name="IdSistema" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Visao_TipoPermissoesPorVisao">
+          <End Role="TipoPermissoesPorVisao" Type="ControleDeLoginModel.TipoPermissoesPorVisao" Multiplicity="1" />
+          <End Role="Visao" Type="ControleDeLoginModel.Visao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPermissoesPorVisao">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Visao">
+              <PropertyRef Name="IdTipoPermissoesPorVisao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ControleDeLoginModelStoreContainer" CdmEntityContainer="ControleDeLoginEntities">
+          <EntitySetMapping Name="Estabelecimentos"><EntityTypeMapping TypeName="ControleDeLoginModel.Estabelecimentos"><MappingFragment StoreEntitySet="Estabelecimentos">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="RazaoSocial" ColumnName="RazaoSocial" />
+            <ScalarProperty Name="NomeFantasia" ColumnName="NomeFantasia" />
+            <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+            <ScalarProperty Name="InscricaoEstadual" ColumnName="InscricaoEstadual" />
+            <ScalarProperty Name="InscricaoMunicipal" ColumnName="InscricaoMunicipal" />
+            <ScalarProperty Name="Logradouro" ColumnName="Logradouro" />
+            <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+            <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+            <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+            <ScalarProperty Name="Estado" ColumnName="Estado" />
+            <ScalarProperty Name="CEP" ColumnName="CEP" />
+            <ScalarProperty Name="Fone" ColumnName="Fone" />
+            <ScalarProperty Name="Fax" ColumnName="Fax" />
+            <ScalarProperty Name="Celular" ColumnName="Celular" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="Numero" ColumnName="Numero" />
+            <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+            <ScalarProperty Name="CodMunicipio" ColumnName="CodMunicipio" />
+            <ScalarProperty Name="AliasConnection" ColumnName="AliasConnection" />
+            <ScalarProperty Name="IdSistema" ColumnName="IdSistema" />
+            <ScalarProperty Name="LogoTop" ColumnName="LogoTop" />
+            <ScalarProperty Name="Logo" ColumnName="Logo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Grupos"><EntityTypeMapping TypeName="ControleDeLoginModel.Grupos"><MappingFragment StoreEntitySet="Grupos">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Nome" ColumnName="Nome" />
+            <ScalarProperty Name="IdSistema" ColumnName="IdSistema" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="GrupoUsuarios"><EntityTypeMapping TypeName="ControleDeLoginModel.GrupoUsuarios"><MappingFragment StoreEntitySet="GrupoUsuarios">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+            <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+            <ScalarProperty Name="IdEstabelecimento" ColumnName="IdEstabelecimento" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="GrupoVisoes"><EntityTypeMapping TypeName="ControleDeLoginModel.GrupoVisoes"><MappingFragment StoreEntitySet="GrupoVisoes">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+            <ScalarProperty Name="IdVisao" ColumnName="IdVisao" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Permissao"><EntityTypeMapping TypeName="ControleDeLoginModel.Permissao"><MappingFragment StoreEntitySet="Permissao">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+            <ScalarProperty Name="IdGrupoVisoes" ColumnName="IdGrupoVisoes" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Sistemas"><EntityTypeMapping TypeName="ControleDeLoginModel.Sistemas"><MappingFragment StoreEntitySet="Sistemas">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TipoPermissoesPorVisao"><EntityTypeMapping TypeName="ControleDeLoginModel.TipoPermissoesPorVisao"><MappingFragment StoreEntitySet="TipoPermissoesPorVisao">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Create" ColumnName="Create" />
+            <ScalarProperty Name="Delete" ColumnName="Delete" />
+            <ScalarProperty Name="Edit" ColumnName="Edit" />
+            <ScalarProperty Name="List" ColumnName="List" />
+            <ScalarProperty Name="Details" ColumnName="Details" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Usuarios"><EntityTypeMapping TypeName="ControleDeLoginModel.Usuarios"><MappingFragment StoreEntitySet="Usuarios">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Login" ColumnName="Login" />
+            <ScalarProperty Name="Nome" ColumnName="Nome" />
+            <ScalarProperty Name="Senha" ColumnName="Senha" />
+            <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+            <ScalarProperty Name="DataInativacao" ColumnName="DataInativacao" />
+            <ScalarProperty Name="Bloqueado" ColumnName="Bloqueado" />
+            <ScalarProperty Name="IdSistema" ColumnName="IdSistema" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Visao"><EntityTypeMapping TypeName="ControleDeLoginModel.Visao"><MappingFragment StoreEntitySet="Visao">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+            <ScalarProperty Name="IdTipoPermissoesPorVisao" ColumnName="IdTipoPermissoesPorVisao" />
+            <ScalarProperty Name="IdSistema" ColumnName="IdSistema" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ControleDeLogin">
+        <EntityTypeShape EntityType="ControleDeLoginModel.Estabelecimentos" Width="1.5" PointX="3" PointY="6.125" Height="5.8263151041666665" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControleDeLoginModel.Grupos" Width="1.5" PointX="3" PointY="3.125" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControleDeLoginModel.GrupoUsuarios" Width="1.5" PointX="5.25" PointY="8.25" Height="2.3648893229166639" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControleDeLoginModel.GrupoVisoes" Width="1.5" PointX="5.25" PointY="3.125" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControleDeLoginModel.Permissao" Width="1.5" PointX="7.5" PointY="3.375" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControleDeLoginModel.Sistemas" Width="1.5" PointX="0.75" PointY="8.25" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControleDeLoginModel.TipoPermissoesPorVisao" Width="1.5" PointX="3.75" PointY="17.25" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControleDeLoginModel.Usuarios" Width="1.5" PointX="3" PointY="12.625" Height="2.9417936197916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControleDeLoginModel.Visao" Width="1.5" PointX="6" PointY="12.25" Height="2.3648893229166674" IsExpanded="true" />
+        <AssociationConnector Association="ControleDeLoginModel.FK_Estabelecimentos_Sistemas" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="9.3362939453125" />
+          <ConnectorPoint PointX="3" PointY="9.3362939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="ControleDeLoginModel.FK_GrupoUsuarios_Estabelecimentos" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="9.4324446614583319" />
+          <ConnectorPoint PointX="5.25" PointY="9.4324446614583319" />
+        </AssociationConnector>
+        <AssociationConnector Association="ControleDeLoginModel.FK_Grupos_Sistemas" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="8.25" />
+          <ConnectorPoint PointX="1.5" PointY="4.2112939453125" />
+          <ConnectorPoint PointX="3" PointY="4.2112939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="ControleDeLoginModel.FK_GrupoUsuarios_Grupos" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="5.297587890625" />
+          <ConnectorPoint PointX="4.875" PointY="5.672587890625" />
+          <ConnectorPoint PointX="4.875" PointY="8.8099703307291648" />
+          <ConnectorPoint PointX="5.25" PointY="8.8099703307291648" />
+        </AssociationConnector>
+        <AssociationConnector Association="ControleDeLoginModel.FK_GrupoVisoes_Grupos" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="4.1800414453125" />
+          <ConnectorPoint PointX="5.25" PointY="4.1800414453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="ControleDeLoginModel.FK_GrupoUsuarios_Usuarios" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="15.122091471354167" />
+          <ConnectorPoint PointX="4.822916666666667" PointY="15.122091471354167" />
+          <ConnectorPoint PointX="4.989583333333333" PointY="15.122091471354167" />
+          <ConnectorPoint PointX="5.59375" PointY="15.122091471354167" />
+          <ConnectorPoint PointX="5.59375" PointY="10.614889322916664" />
+        </AssociationConnector>
+        <AssociationConnector Association="ControleDeLoginModel.FK_GrupoVisoes_Visao" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.0937505000000005" PointY="12.25" />
+          <ConnectorPoint PointX="7.0937505000000005" PointY="4.2112939453125" />
+          <ConnectorPoint PointX="6.75" PointY="4.2112939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="ControleDeLoginModel.FK_Permissao_GrupoVisoes" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="4.7496394856770836" />
+          <ConnectorPoint PointX="7.0104171666666675" PointY="4.7496394856770827" />
+          <ConnectorPoint PointX="7.1770838333333336" PointY="4.7496394856770836" />
+          <ConnectorPoint PointX="7.5" PointY="4.7496394856770836" />
+        </AssociationConnector>
+        <AssociationConnector Association="ControleDeLoginModel.FK_Usuarios_Sistemas" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="10.422587890625" />
+          <ConnectorPoint PointX="1.5" PointY="14.095896809895834" />
+          <ConnectorPoint PointX="3" PointY="14.095896809895834" />
+        </AssociationConnector>
+        <AssociationConnector Association="ControleDeLoginModel.FK_Visao_Sistemas" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.9062525" PointY="10.422587890625" />
+          <ConnectorPoint PointX="1.9062525" PointY="12.40625" />
+          <ConnectorPoint PointX="5.510416666666667" PointY="12.40625" />
+          <ConnectorPoint PointX="5.677083333333333" PointY="12.40625" />
+          <ConnectorPoint PointX="6" PointY="12.40625" />
+        </AssociationConnector>
+        <AssociationConnector Association="ControleDeLoginModel.FK_Visao_TipoPermissoesPorVisao" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.90625" PointY="17.25" />
+          <ConnectorPoint PointX="4.90625" PointY="12.5156275" />
+          <ConnectorPoint PointX="5.510416666666667" PointY="12.5156275" />
+          <ConnectorPoint PointX="5.677083333333333" PointY="12.5156275" />
+          <ConnectorPoint PointX="6" PointY="12.5156275" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
