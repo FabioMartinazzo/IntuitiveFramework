@@ -53,14 +53,17 @@
   <ItemGroup>
     <Compile Include="Controllers\CadastrosController.cs" />
     <Compile Include="Controllers\CadastrosEntityRelationshipController.cs" />
+    <Compile Include="Controllers\EmailConfigsLoginController.cs" />
     <Compile Include="Controllers\EstabelecimentosLoginController.cs" />
     <Compile Include="Controllers\LoginSessionsController.cs" />
     <Compile Include="Controllers\GrupoLoginController.cs" />
+    <Compile Include="Models\AESEncriptor.cs" />
     <Compile Include="Models\ControleDeLogin.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ControleDeLogin.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\EnumHelper.cs" />
     <Compile Include="Models\ICadastros.cs" />
     <Compile Include="Controllers\ListController.cs" />
     <Compile Include="Controllers\LoginController.cs" />

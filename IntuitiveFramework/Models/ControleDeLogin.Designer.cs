@@ -18,6 +18,8 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
+[assembly: EdmRelationshipAttribute("ControleDeLoginModel", "FK_DadosEmails_EmailConfigs", "EmailConfigs", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(IntuitiveFramework.Models.EmailConfigs), "DadosEmails", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IntuitiveFramework.Models.DadosEmails), true)]
+[assembly: EdmRelationshipAttribute("ControleDeLoginModel", "FK_EmailConfigs_Estabelecimentos", "Estabelecimentos", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(IntuitiveFramework.Models.Estabelecimentos), "EmailConfigs", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IntuitiveFramework.Models.EmailConfigs), true)]
 [assembly: EdmRelationshipAttribute("ControleDeLoginModel", "FK_Estabelecimentos_Sistemas", "Sistemas", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(IntuitiveFramework.Models.Sistemas), "Estabelecimentos", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IntuitiveFramework.Models.Estabelecimentos), true)]
 [assembly: EdmRelationshipAttribute("ControleDeLoginModel", "FK_GrupoUsuarios_Estabelecimentos", "Estabelecimentos", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(IntuitiveFramework.Models.Estabelecimentos), "GrupoUsuarios", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IntuitiveFramework.Models.GrupoUsuarios), true)]
 [assembly: EdmRelationshipAttribute("ControleDeLoginModel", "FK_Grupos_Sistemas", "Sistemas", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(IntuitiveFramework.Models.Sistemas), "Grupos", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(IntuitiveFramework.Models.Grupos), true)]
@@ -79,6 +81,38 @@ namespace IntuitiveFramework.Models
         #endregion
     
         #region ObjectSet Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<DadosEmails> DadosEmails
+        {
+            get
+            {
+                if ((_DadosEmails == null))
+                {
+                    _DadosEmails = base.CreateObjectSet<DadosEmails>("DadosEmails");
+                }
+                return _DadosEmails;
+            }
+        }
+        private ObjectSet<DadosEmails> _DadosEmails;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<EmailConfigs> EmailConfigs
+        {
+            get
+            {
+                if ((_EmailConfigs == null))
+                {
+                    _EmailConfigs = base.CreateObjectSet<EmailConfigs>("EmailConfigs");
+                }
+                return _EmailConfigs;
+            }
+        }
+        private ObjectSet<EmailConfigs> _EmailConfigs;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -228,6 +262,22 @@ namespace IntuitiveFramework.Models
         #region AddTo Methods
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the DadosEmails EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToDadosEmails(DadosEmails dadosEmails)
+        {
+            base.AddObject("DadosEmails", dadosEmails);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the EmailConfigs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToEmailConfigs(EmailConfigs emailConfigs)
+        {
+            base.AddObject("EmailConfigs", emailConfigs);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the Estabelecimentos EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToEstabelecimentos(Estabelecimentos estabelecimentos)
@@ -306,6 +356,478 @@ namespace IntuitiveFramework.Models
     #endregion
     
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="ControleDeLoginModel", Name="DadosEmails")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class DadosEmails : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new DadosEmails object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="login">Initial value of the Login property.</param>
+        /// <param name="password">Initial value of the Password property.</param>
+        /// <param name="tipo">Initial value of the Tipo property.</param>
+        /// <param name="idEmailConfigs">Initial value of the IdEmailConfigs property.</param>
+        public static DadosEmails CreateDadosEmails(global::System.Int32 id, global::System.String login, global::System.String password, global::System.Int32 tipo, global::System.Int32 idEmailConfigs)
+        {
+            DadosEmails dadosEmails = new DadosEmails();
+            dadosEmails.Id = id;
+            dadosEmails.Login = login;
+            dadosEmails.Password = password;
+            dadosEmails.Tipo = tipo;
+            dadosEmails.IdEmailConfigs = idEmailConfigs;
+            return dadosEmails;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Login
+        {
+            get
+            {
+                return _Login;
+            }
+            set
+            {
+                OnLoginChanging(value);
+                ReportPropertyChanging("Login");
+                _Login = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Login");
+                OnLoginChanged();
+            }
+        }
+        private global::System.String _Login;
+        partial void OnLoginChanging(global::System.String value);
+        partial void OnLoginChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Password
+        {
+            get
+            {
+                return _Password;
+            }
+            set
+            {
+                OnPasswordChanging(value);
+                ReportPropertyChanging("Password");
+                _Password = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Password");
+                OnPasswordChanged();
+            }
+        }
+        private global::System.String _Password;
+        partial void OnPasswordChanging(global::System.String value);
+        partial void OnPasswordChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Tipo
+        {
+            get
+            {
+                return _Tipo;
+            }
+            set
+            {
+                OnTipoChanging(value);
+                ReportPropertyChanging("Tipo");
+                _Tipo = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Tipo");
+                OnTipoChanged();
+            }
+        }
+        private global::System.Int32 _Tipo;
+        partial void OnTipoChanging(global::System.Int32 value);
+        partial void OnTipoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IdEmailConfigs
+        {
+            get
+            {
+                return _IdEmailConfigs;
+            }
+            set
+            {
+                OnIdEmailConfigsChanging(value);
+                ReportPropertyChanging("IdEmailConfigs");
+                _IdEmailConfigs = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdEmailConfigs");
+                OnIdEmailConfigsChanged();
+            }
+        }
+        private global::System.Int32 _IdEmailConfigs;
+        partial void OnIdEmailConfigsChanging(global::System.Int32 value);
+        partial void OnIdEmailConfigsChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ControleDeLoginModel", "FK_DadosEmails_EmailConfigs", "EmailConfigs")]
+        public EmailConfigs EmailConfigs
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EmailConfigs>("ControleDeLoginModel.FK_DadosEmails_EmailConfigs", "EmailConfigs").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EmailConfigs>("ControleDeLoginModel.FK_DadosEmails_EmailConfigs", "EmailConfigs").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<EmailConfigs> EmailConfigsReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EmailConfigs>("ControleDeLoginModel.FK_DadosEmails_EmailConfigs", "EmailConfigs");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<EmailConfigs>("ControleDeLoginModel.FK_DadosEmails_EmailConfigs", "EmailConfigs", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="ControleDeLoginModel", Name="EmailConfigs")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class EmailConfigs : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new EmailConfigs object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="smtpHost">Initial value of the SmtpHost property.</param>
+        /// <param name="pop3Host">Initial value of the Pop3Host property.</param>
+        /// <param name="usaSsl">Initial value of the UsaSsl property.</param>
+        /// <param name="usaAutenticacaoPop">Initial value of the UsaAutenticacaoPop property.</param>
+        /// <param name="idEstabelecimento">Initial value of the IdEstabelecimento property.</param>
+        public static EmailConfigs CreateEmailConfigs(global::System.Int32 id, global::System.String smtpHost, global::System.String pop3Host, global::System.Boolean usaSsl, global::System.Boolean usaAutenticacaoPop, global::System.Int32 idEstabelecimento)
+        {
+            EmailConfigs emailConfigs = new EmailConfigs();
+            emailConfigs.Id = id;
+            emailConfigs.SmtpHost = smtpHost;
+            emailConfigs.Pop3Host = pop3Host;
+            emailConfigs.UsaSsl = usaSsl;
+            emailConfigs.UsaAutenticacaoPop = usaAutenticacaoPop;
+            emailConfigs.IdEstabelecimento = idEstabelecimento;
+            return emailConfigs;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String SmtpHost
+        {
+            get
+            {
+                return _SmtpHost;
+            }
+            set
+            {
+                OnSmtpHostChanging(value);
+                ReportPropertyChanging("SmtpHost");
+                _SmtpHost = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("SmtpHost");
+                OnSmtpHostChanged();
+            }
+        }
+        private global::System.String _SmtpHost;
+        partial void OnSmtpHostChanging(global::System.String value);
+        partial void OnSmtpHostChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Pop3Host
+        {
+            get
+            {
+                return _Pop3Host;
+            }
+            set
+            {
+                OnPop3HostChanging(value);
+                ReportPropertyChanging("Pop3Host");
+                _Pop3Host = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Pop3Host");
+                OnPop3HostChanged();
+            }
+        }
+        private global::System.String _Pop3Host;
+        partial void OnPop3HostChanging(global::System.String value);
+        partial void OnPop3HostChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean UsaSsl
+        {
+            get
+            {
+                return _UsaSsl;
+            }
+            set
+            {
+                OnUsaSslChanging(value);
+                ReportPropertyChanging("UsaSsl");
+                _UsaSsl = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UsaSsl");
+                OnUsaSslChanged();
+            }
+        }
+        private global::System.Boolean _UsaSsl;
+        partial void OnUsaSslChanging(global::System.Boolean value);
+        partial void OnUsaSslChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean UsaAutenticacaoPop
+        {
+            get
+            {
+                return _UsaAutenticacaoPop;
+            }
+            set
+            {
+                OnUsaAutenticacaoPopChanging(value);
+                ReportPropertyChanging("UsaAutenticacaoPop");
+                _UsaAutenticacaoPop = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UsaAutenticacaoPop");
+                OnUsaAutenticacaoPopChanged();
+            }
+        }
+        private global::System.Boolean _UsaAutenticacaoPop;
+        partial void OnUsaAutenticacaoPopChanging(global::System.Boolean value);
+        partial void OnUsaAutenticacaoPopChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IdEstabelecimento
+        {
+            get
+            {
+                return _IdEstabelecimento;
+            }
+            set
+            {
+                OnIdEstabelecimentoChanging(value);
+                ReportPropertyChanging("IdEstabelecimento");
+                _IdEstabelecimento = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdEstabelecimento");
+                OnIdEstabelecimentoChanged();
+            }
+        }
+        private global::System.Int32 _IdEstabelecimento;
+        partial void OnIdEstabelecimentoChanging(global::System.Int32 value);
+        partial void OnIdEstabelecimentoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Porta
+        {
+            get
+            {
+                return _Porta;
+            }
+            set
+            {
+                OnPortaChanging(value);
+                ReportPropertyChanging("Porta");
+                _Porta = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Porta");
+                OnPortaChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Porta;
+        partial void OnPortaChanging(Nullable<global::System.Int32> value);
+        partial void OnPortaChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ControleDeLoginModel", "FK_DadosEmails_EmailConfigs", "DadosEmails")]
+        public EntityCollection<DadosEmails> DadosEmails
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<DadosEmails>("ControleDeLoginModel.FK_DadosEmails_EmailConfigs", "DadosEmails");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<DadosEmails>("ControleDeLoginModel.FK_DadosEmails_EmailConfigs", "DadosEmails", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ControleDeLoginModel", "FK_EmailConfigs_Estabelecimentos", "Estabelecimentos")]
+        public Estabelecimentos Estabelecimentos
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Estabelecimentos>("ControleDeLoginModel.FK_EmailConfigs_Estabelecimentos", "Estabelecimentos").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Estabelecimentos>("ControleDeLoginModel.FK_EmailConfigs_Estabelecimentos", "Estabelecimentos").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Estabelecimentos> EstabelecimentosReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Estabelecimentos>("ControleDeLoginModel.FK_EmailConfigs_Estabelecimentos", "Estabelecimentos");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Estabelecimentos>("ControleDeLoginModel.FK_EmailConfigs_Estabelecimentos", "Estabelecimentos", value);
+                }
+            }
+        }
+
+        #endregion
+    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -913,6 +1435,28 @@ namespace IntuitiveFramework.Models
         #endregion
     
         #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ControleDeLoginModel", "FK_EmailConfigs_Estabelecimentos", "EmailConfigs")]
+        public EntityCollection<EmailConfigs> EmailConfigs
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<EmailConfigs>("ControleDeLoginModel.FK_EmailConfigs_Estabelecimentos", "EmailConfigs");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<EmailConfigs>("ControleDeLoginModel.FK_EmailConfigs_Estabelecimentos", "EmailConfigs", value);
+                }
+            }
+        }
     
         /// <summary>
         /// No Metadata Documentation available.

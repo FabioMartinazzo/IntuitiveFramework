@@ -30,5 +30,11 @@ namespace IntuitiveFramework.Models
             MaiorIgual = 1,
             Maior = 2,
         }
+
+        public enum TipoEmail
+        {
+            [Description("Faturas Clientes")]
+            FaturasClientes = 1,
+        }
     }
 }

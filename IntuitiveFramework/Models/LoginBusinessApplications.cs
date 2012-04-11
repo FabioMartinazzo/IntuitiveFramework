@@ -9,6 +9,16 @@ namespace IntuitiveFramework.Models
 {
     public static class LoginBusinessApplications
     {
+        private static byte[] getAesKey()
+        {
+            return new byte[32] { 245, 112, 45, 68, 75, 44, 0, 12, 8, 55, 254, 1, 6, 9, 63, 12, 45, 11, 23, 25, 88, 17, 35, 52, 55, 45, 45, 45, 1, 2, 69, 210 };
+        }
+
+        private static byte[] getAesIV()
+        {
+            return new byte[16] { 114, 234, 201, 1, 3, 2, 54, 12, 45, 65, 2, 47, 8, 7, 69, 36 };
+        }
+
         public static bool AdicionarDataPadraoCadastroUsuario(ref Usuarios objUsuario)
         {
             try
@@ -366,6 +376,62 @@ namespace IntuitiveFramework.Models
             }
             catch
             {
+                return false;
+            }
+        }
+
+        public static bool criptografarAES(string textoParaEncriptar, out string textoEncriptado)
+        {
+            try
+            {
+                AESEncriptor aesEncriptor = new AESEncriptor();
+
+                aesEncriptor.Key = getAesKey();
+                aesEncriptor.InitializatorVector = getAesIV();
+                aesEncriptor.PlainText = textoParaEncriptar;
+
+                byte[] encriptedData = null;
+                if (!aesEncriptor.encriptarAES(out encriptedData))
+                {
+                    textoEncriptado = null;
+                    return false;
+                }
+
+                textoEncriptado = Convert.ToBase64String(encriptedData);
+
+                return true;
+            }
+            catch
+            {
+                textoEncriptado = null;
+                return false;
+            }
+        }
+
+        public static bool descriptografarAES(string textoParaDescriptografar, out string textoDescriptografado)
+        {
+            try
+            {
+                AESEncriptor aesEncriptor = new AESEncriptor();                
+
+                aesEncriptor.Key = getAesKey();
+                aesEncriptor.InitializatorVector = getAesIV();                
+                aesEncriptor.CipherText = Convert.FromBase64String(textoParaDescriptografar);
+
+                string decriptedData = null;
+                if (!aesEncriptor.decriptarAES(out decriptedData))
+                {
+                    textoDescriptografado = null;
+                    return false;
+                }
+
+                textoDescriptografado = decriptedData;
+
+                return true;
+            }
+            catch
+            {
+                textoDescriptografado = null;
                 return false;
             }
         }
