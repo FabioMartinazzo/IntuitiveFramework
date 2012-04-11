@@ -94,8 +94,7 @@ namespace IntuitiveFramework.Models
     /// </summary>
     public class MultKeys
     {
-        private object[] _keys;
-        int positionKeys;
+        private object[] _keys;        
         private int[][] separators;
         private int positionSeparators;
 
@@ -111,14 +110,12 @@ namespace IntuitiveFramework.Models
         public void AssignMultKeys(string multKeys)
         {
             StringToMultKeys(multKeys);
-            _keys = new object[100];
-            positionKeys = 0;
+            _keys = new object[100];            
 
             int n = 0;
             while (n < positionSeparators)
             {
-                _keys.SetValue(multKeys.Substring(separators[n][0], (separators[n][1] - separators[n][0])), positionKeys);
-                positionKeys++;
+                _keys.SetValue(multKeys.Substring(separators[n][0], (separators[n][1] - separators[n][0])), n);                
                 n++;
             }
         }

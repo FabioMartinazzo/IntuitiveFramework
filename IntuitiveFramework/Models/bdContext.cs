@@ -53,10 +53,10 @@ namespace IntuitiveFramework.Models
             }
         }
 
-        //public static void zerarInstance()
-        //{
-        //    instance = null;
-        //}
+        public static void zerarInstance()
+        {
+            instance = null;
+        }
 
         private Z bd;
 

@@ -8,7 +8,7 @@ using IntuitiveFramework.Models;
 
 namespace IntuitiveFramework.Controllers
 {
-    public class EstabelecimentosLoginController : CadastrosController<ControleDeLoginEntities>, ICadastros
+    public class EstabelecimentosLoginController : CadastrosEntityRelationshipController<ControleDeLoginEntities>, ICadastros
     {
         private TPermissionCheck _permissionCheck;
 
@@ -70,6 +70,19 @@ namespace IntuitiveFramework.Controllers
         {
             MultKeys multkeys = new MultKeys(keys);
             return base.Details<Estabelecimentos>(this._permissionCheck, CommomIdentifier(multkeys));
+        }
+
+        [HttpPost]
+        public ActionResult AdicionarEmailConfig(FormCollection collection)
+        {
+            MultKeys multkeys = new MultKeys(collection["keys"].ToString());
+            return base.Add<Estabelecimentos, EmailConfigs>(null, collection, CommomIdentifier(multkeys));
+        }
+
+        public ActionResult ExcluirEmailConfig(string keysFilho, string keysPai)
+        {
+            MultKeys multkeys = new MultKeys(keysFilho);
+            return base.Remove<Estabelecimentos, EmailConfigs>(null, x => x.Id.Equals(int.Parse(multkeys.GetKeyinIndex(0).ToString())), keysPai);
         }
 
         public Boolean BusinessValidatorForDelete<T>(FormCollection formcollection, ref T table, out string msnErro)
