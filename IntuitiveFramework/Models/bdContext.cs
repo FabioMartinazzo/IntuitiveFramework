@@ -13,6 +13,7 @@ namespace IntuitiveFramework.Models
     public class bdContext<Z> where Z : ObjectContext, new()
     {
         private static bdContext<Z> instance;
+        private string _aliasName;
 
         //Usado para poder trabalhar com sessões dentro dos Models.
         Page pagina = new Page();
@@ -27,11 +28,13 @@ namespace IntuitiveFramework.Models
                 if (!LoginBusinessApplications.getConnectionAliasByIdEstab((int)pagina.Session["IdEstabelecimento"], out AliasConnection))
                     throw new Exception("Acontenceu um erro ao tentar descobrir a conexão para este estabelecimento!");
 
+                this._aliasName = AliasConnection;
+
                 Type typeZ = typeof(Z);
                 ConstructorInfo ZConstructor = typeZ.GetConstructor(new Type[] { typeof(string) });
                 try
                 {
-                    bd = ZConstructor.Invoke(new object[] { ConfigurationManager.ConnectionStrings[AliasConnection].ConnectionString }) as Z;
+                    bd = ZConstructor.Invoke(new object[] { ConfigurationManager.ConnectionStrings[this._aliasName].ConnectionString }) as Z;
                 }
                 catch
                 {
@@ -51,6 +54,11 @@ namespace IntuitiveFramework.Models
                 
                 return instance;
             }
+        }
+
+        public static string GetCurrentAlias()
+        {
+            return instance._aliasName;
         }
 
         public static void zerarInstance()
