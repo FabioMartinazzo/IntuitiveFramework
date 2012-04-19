@@ -46,11 +46,9 @@ namespace IntuitiveFramework.Controllers
                         }
                     }
 
-                    (bdInstance as Z).SaveChanges();
+                    (bdInstance as Z).SaveChanges();                    
 
-                    this.ViewData["Mensagem"] = Mensagem;
-
-                    return RedirectToAction("Edit", new { keys = keys });
+                    return RedirectToAction("Edit", new { keys = keys, Mensagem = Mensagem });
                 }
                 else
                 {
