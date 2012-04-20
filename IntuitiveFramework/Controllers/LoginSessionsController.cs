@@ -28,12 +28,21 @@ namespace IntuitiveFramework.Controllers
             return View("Index");
         }
 
-        protected ActionResult Login(FormCollection collection, string sistema)
+        protected ActionResult Login<T>(FormCollection collection, string sistema) where T : ObjectContext, new()
         {
             Usuarios objUsuario = null;
 
             bool zerarContador = true;
             int idSistema = -1;
+
+            //string AliasConnection = null;
+
+            //if (!LoginBusinessApplications.getConnectionAliasByIdEstab((int)Session["IdEstabelecimento"], out AliasConnection))
+            //    throw new Exception("Acontenceu um erro ao tentar descobrir a conexão para este estabelecimento!");
+
+            //if (bdContext<ControleDeLoginEntities>.GetCurrentAlias() != AliasConnection)
+            if (Session["IdEstabelecimento"] == null)
+                bdContext<T>.zerarInstance();
 
             if (Session["Login"] == null)
             {

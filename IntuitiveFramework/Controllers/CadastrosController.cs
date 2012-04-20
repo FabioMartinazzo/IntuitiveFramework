@@ -465,6 +465,8 @@ namespace IntuitiveFramework.Controllers
                             addingProperty<T, int>(collection.GetKey(n), ref objTable, intParser);
                         else if (ColummIsNullable<T>(collection.GetKey(n)).Equals(false))
                             CommommModelError(originalCollection[n]);
+                        else
+                            addingProperty<T, int?>(collection.GetKey(n), ref objTable, null);
                     }
                     else if ((GetPropertyType<T>(collection.GetKey(n)).Equals(typeof(double))) || (GetPropertyType<T>(collection.GetKey(n)).Equals(typeof(double?))))
                     {
@@ -473,6 +475,8 @@ namespace IntuitiveFramework.Controllers
                             addingProperty<T, double>(collection.GetKey(n), ref objTable, dblParser);
                         else if (ColummIsNullable<T>(collection.GetKey(n)).Equals(false))
                             CommommModelError(originalCollection[n]);
+                        else
+                            addingProperty<T, double?>(collection.GetKey(n), ref objTable, null);
                     }
                     else if ((GetPropertyType<T>(collection.GetKey(n)).Equals(typeof(DateTime))) || (GetPropertyType<T>(collection.GetKey(n)).Equals(typeof(DateTime?))))
                     {
@@ -481,6 +485,8 @@ namespace IntuitiveFramework.Controllers
                             addingProperty<T, DateTime>(collection.GetKey(n), ref objTable, dateParser);
                         else if (ColummIsNullable<T>(collection.GetKey(n)).Equals(false))
                             CommommModelError(originalCollection[n]);
+                        else
+                            addingProperty<T, DateTime?>(collection.GetKey(n), ref objTable, null);
                     }
                     else if ((GetPropertyType<T>(collection.GetKey(n)).Equals(typeof(TimeSpan))) || (GetPropertyType<T>(collection.GetKey(n)).Equals(typeof(TimeSpan?))))
                     {
@@ -489,6 +495,8 @@ namespace IntuitiveFramework.Controllers
                             addingProperty<T, TimeSpan>(collection.GetKey(n), ref objTable, timeParser);
                         else if (ColummIsNullable<T>(collection.GetKey(n)).Equals(false))
                             CommommModelError(originalCollection[n]);
+                        else
+                            addingProperty<T, TimeSpan?>(collection.GetKey(n), ref objTable, null);
                     }
                     else if ((GetPropertyType<T>(collection.GetKey(n)).Equals(typeof(Boolean))))
                     {
