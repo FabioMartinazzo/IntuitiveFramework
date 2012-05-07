@@ -3,6 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntuitiveFramework", "IntuitiveFramework\IntuitiveFramework.csproj", "{C0E3FB38-EA20-484F-8D5E-3A8D8B881D42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleDeLogin", "ControleDeLogin\ControleDeLogin.csproj", "{1B6A05A9-11AD-4673-8A21-5F47CED28C50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntuitiveEstruturas", "IntuitiveEstruturas\IntuitiveEstruturas.csproj", "{03D3DE5E-34CD-450A-B154-3CC700E35605}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistencia", "Persistencia\Persistencia.csproj", "{6ED0B2CB-1B42-4CCA-B9EB-EFE4A722EA79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelasControllers", "Cadastros\TelasControllers.csproj", "{6CAECCEA-110A-408E-A541-9A3EF4748907}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntuitiveFuncoes", "IntuitiveFuncoes\IntuitiveFuncoes.csproj", "{11115FDB-598B-4FCA-B2E3-D8C594E51794}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelasControllersLogin", "CadastrosLogin\TelasControllersLogin.csproj", "{94121EC2-FD21-4827-9890-8B2D3F78684D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +25,30 @@ Global
 		{C0E3FB38-EA20-484F-8D5E-3A8D8B881D42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0E3FB38-EA20-484F-8D5E-3A8D8B881D42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0E3FB38-EA20-484F-8D5E-3A8D8B881D42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B6A05A9-11AD-4673-8A21-5F47CED28C50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B6A05A9-11AD-4673-8A21-5F47CED28C50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B6A05A9-11AD-4673-8A21-5F47CED28C50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B6A05A9-11AD-4673-8A21-5F47CED28C50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03D3DE5E-34CD-450A-B154-3CC700E35605}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03D3DE5E-34CD-450A-B154-3CC700E35605}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03D3DE5E-34CD-450A-B154-3CC700E35605}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03D3DE5E-34CD-450A-B154-3CC700E35605}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ED0B2CB-1B42-4CCA-B9EB-EFE4A722EA79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ED0B2CB-1B42-4CCA-B9EB-EFE4A722EA79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ED0B2CB-1B42-4CCA-B9EB-EFE4A722EA79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ED0B2CB-1B42-4CCA-B9EB-EFE4A722EA79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CAECCEA-110A-408E-A541-9A3EF4748907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CAECCEA-110A-408E-A541-9A3EF4748907}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CAECCEA-110A-408E-A541-9A3EF4748907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CAECCEA-110A-408E-A541-9A3EF4748907}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11115FDB-598B-4FCA-B2E3-D8C594E51794}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11115FDB-598B-4FCA-B2E3-D8C594E51794}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11115FDB-598B-4FCA-B2E3-D8C594E51794}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11115FDB-598B-4FCA-B2E3-D8C594E51794}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94121EC2-FD21-4827-9890-8B2D3F78684D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94121EC2-FD21-4827-9890-8B2D3F78684D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94121EC2-FD21-4827-9890-8B2D3F78684D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94121EC2-FD21-4827-9890-8B2D3F78684D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

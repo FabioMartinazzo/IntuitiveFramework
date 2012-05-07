@@ -42,6 +42,7 @@
     <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml.Linq" />
@@ -51,38 +52,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\CadastrosController.cs" />
-    <Compile Include="Controllers\CadastrosEntityRelationshipController.cs" />
-    <Compile Include="Controllers\EmailConfigsLoginController.cs" />
-    <Compile Include="Controllers\EstabelecimentosLoginController.cs" />
-    <Compile Include="Controllers\LoginSessionsController.cs" />
-    <Compile Include="Controllers\GrupoLoginController.cs" />
-    <Compile Include="Models\AESEncriptor.cs" />
-    <Compile Include="Models\ControleDeLogin.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ControleDeLogin.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EnumHelper.cs" />
-    <Compile Include="Models\ICadastros.cs" />
-    <Compile Include="Controllers\ListController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\TrocarSenhaLoginController.cs" />
-    <Compile Include="Controllers\UsuarioLoginController.cs" />
-    <Compile Include="Models\bdContext.cs" />
-    <Compile Include="Models\CustomFunctions.cs" />
-    <Compile Include="Models\CustomStructs.cs" />
-    <Compile Include="Models\DateHelper.cs" />
-    <Compile Include="Models\EnumsIntuitive.cs" />
-    <Compile Include="Models\LoginBusinessApplications.cs" />
+    <Compile Include="Controllers\IntuitiveFrameworkController.cs" />
+    <Compile Include="Models\IntuitiveFrameworkModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
-    <EntityDeploy Include="Models\ControleDeLogin.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ControleDeLogin.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    <ProjectReference Include="..\CadastrosLogin\TelasControllersLogin.csproj">
+      <Project>{94121EC2-FD21-4827-9890-8B2D3F78684D}</Project>
+      <Name>TelasControllersLogin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cadastros\TelasControllers.csproj">
+      <Project>{6CAECCEA-110A-408E-A541-9A3EF4748907}</Project>
+      <Name>TelasControllers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ControleDeLogin\ControleDeLogin.csproj">
+      <Project>{1B6A05A9-11AD-4673-8A21-5F47CED28C50}</Project>
+      <Name>ControleDeLogin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IntuitiveEstruturas\IntuitiveEstruturas.csproj">
+      <Project>{03D3DE5E-34CD-450A-B154-3CC700E35605}</Project>
+      <Name>IntuitiveEstruturas</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IntuitiveFuncoes\IntuitiveFuncoes.csproj">
+      <Project>{11115FDB-598B-4FCA-B2E3-D8C594E51794}</Project>
+      <Name>IntuitiveFuncoes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Persistencia\Persistencia.csproj">
+      <Project>{6ED0B2CB-1B42-4CCA-B9EB-EFE4A722EA79}</Project>
+      <Name>Persistencia</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
