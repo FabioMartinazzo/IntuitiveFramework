@@ -46,6 +46,9 @@
   <ItemGroup>
     <Compile Include="CadastrosController.cs" />
     <Compile Include="CadastrosEntityRelationshipController.cs" />
+    <Compile Include="IAddEdit.cs" />
+    <Compile Include="IEdit.cs" />
+    <Compile Include="ILista.cs" />
     <Compile Include="ICadastros.cs" />
     <Compile Include="ListController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
