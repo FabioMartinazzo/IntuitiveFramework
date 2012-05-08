@@ -8,6 +8,7 @@ using System.Data.Objects;
 using System.Data.Objects.DataClasses;
 
 using IntuitiveEstruturas;
+using IntuitiveFuncoes;
 
 namespace TelasControllers
 {
@@ -64,7 +65,7 @@ namespace TelasControllers
             {
                 if (commommethod != null)
                     commommethod();
-                this.ViewData["Erro"] = "Erro: " + ex.Message;
+                this.ViewData["Erro"] = "Erro: " + CustomFunctions.getErrorMessageFromException(ex);
                 return View("Edit");
             }
         }
@@ -102,7 +103,7 @@ namespace TelasControllers
             {
                 if (commommethod != null)
                     commommethod();
-                this.ViewData["Erro"] = "Erro: " + ex.Message;
+                this.ViewData["Erro"] = "Erro: " + CustomFunctions.getErrorMessageFromException(ex);
                 return View("Edit");
             }
         }

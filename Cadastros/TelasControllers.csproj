@@ -59,6 +59,10 @@
       <Project>{03D3DE5E-34CD-450A-B154-3CC700E35605}</Project>
       <Name>IntuitiveEstruturas</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IntuitiveFuncoes\IntuitiveFuncoes.csproj">
+      <Project>{11115FDB-598B-4FCA-B2E3-D8C594E51794}</Project>
+      <Name>IntuitiveFuncoes</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

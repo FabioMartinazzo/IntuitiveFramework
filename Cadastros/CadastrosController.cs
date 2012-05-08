@@ -9,6 +9,7 @@ using System.Configuration;
 
 using IntuitiveEstruturas;
 using ControleDeLogin.Models;
+using IntuitiveFuncoes;
 
 namespace TelasControllers
 {
@@ -79,7 +80,7 @@ namespace TelasControllers
             }
             catch (Exception ex)
             {
-                this.ViewData["Erro"] = "<br/>Erro: " + ex.Message;
+                this.ViewData["Erro"] = "<br/>Erro: " + CustomFunctions.getErrorMessageFromException(ex);
                 return View();
             }
         }
@@ -170,7 +171,7 @@ namespace TelasControllers
             {
                 if (readdropdown != null)
                     readdropdown();
-                this.ViewData["Erro"] = "<br/>Erro: " + ex.Message;
+                this.ViewData["Erro"] = "<br/>Erro: " + CustomFunctions.getErrorMessageFromException(ex);
                 return View("Create");
             }
         }
@@ -201,7 +202,7 @@ namespace TelasControllers
             }
             catch (Exception ex)
             {
-                this.ViewData["Erro"] = "<br/>Erro: " + ex.Message;
+                this.ViewData["Erro"] = "<br/>Erro: " + CustomFunctions.getErrorMessageFromException(ex);
                 return View();
             }
         }
@@ -250,7 +251,7 @@ namespace TelasControllers
                 if (readdropdown != null)
                     readdropdown();
 
-                this.ViewData["Erro"] = "<br/>Erro: " + ex.Message;
+                this.ViewData["Erro"] = "<br/>Erro: " + CustomFunctions.getErrorMessageFromException(ex);
                 return View("Edit");
             }
         }
@@ -304,7 +305,7 @@ namespace TelasControllers
 
                 ViewData.Model = objTable;
 
-                this.ViewData["Erro"] = "<br/>Erro: " + ex.Message;
+                this.ViewData["Erro"] = "<br/>Erro: " + CustomFunctions.getErrorMessageFromException(ex);
                 if ((certeza) && (string.IsNullOrEmpty(tmpError)))
                     return RedirectToAction("List");
                 else
@@ -343,7 +344,7 @@ namespace TelasControllers
             {
                 if (readdropdown != null)
                     readdropdown();
-                this.ViewData["Erro"] = "<br/>Erro: " + ex.Message;
+                this.ViewData["Erro"] = "<br/>Erro: " + CustomFunctions.getErrorMessageFromException(ex);
                 return View();
             }
         }
@@ -372,7 +373,7 @@ namespace TelasControllers
             }
             catch (Exception ex)
             {
-                this.ViewData["Erro"] = "<br/>Erro: " + ex.Message;
+                this.ViewData["Erro"] = "<br/>Erro: " + CustomFunctions.getErrorMessageFromException(ex);
                 return View();
             }
         }        
