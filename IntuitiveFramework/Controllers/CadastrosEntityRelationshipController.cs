@@ -61,7 +61,7 @@ namespace IntuitiveFramework.Controllers
             {
                 if (commommethod != null)
                     commommethod();
-                this.ViewData["Erro"] = "Erro: " + ex.Message;
+                this.ViewData["Erro"] = "Erro: " + CustomFunctions.getErrorMessageFromException(ex);
                 return View("Edit");
             }
         }

@@ -77,7 +77,7 @@ namespace IntuitiveFramework.Controllers
             }
             catch (Exception ex)
             {
-                this.ViewData["Erro"] = "<br/>Erro: " + ex.Message;
+                this.ViewData["Erro"] = "<br/>Erro: " + CustomFunctions.getErrorMessageFromException(ex);
                 return View();
             }
         }
@@ -168,7 +168,7 @@ namespace IntuitiveFramework.Controllers
             {
                 if (readdropdown != null)
                     readdropdown();
-                this.ViewData["Erro"] = "<br/>Erro: " + ex.Message;
+                this.ViewData["Erro"] = "<br/>Erro: " + CustomFunctions.getErrorMessageFromException(ex);
                 return View("Create");
             }
         }
@@ -199,7 +199,7 @@ namespace IntuitiveFramework.Controllers
             }
             catch (Exception ex)
             {
-                this.ViewData["Erro"] = "<br/>Erro: " + ex.Message;
+                this.ViewData["Erro"] = "<br/>Erro: " + CustomFunctions.getErrorMessageFromException(ex);
                 return View();
             }
         }
@@ -248,7 +248,7 @@ namespace IntuitiveFramework.Controllers
                 if (readdropdown != null)
                     readdropdown();
 
-                this.ViewData["Erro"] = "<br/>Erro: " + ex.Message;
+                this.ViewData["Erro"] = "<br/>Erro: " + CustomFunctions.getErrorMessageFromException(ex);
                 return View("Edit");
             }
         }
@@ -302,7 +302,7 @@ namespace IntuitiveFramework.Controllers
 
                 ViewData.Model = objTable;
 
-                this.ViewData["Erro"] = "<br/>Erro: " + ex.Message;
+                this.ViewData["Erro"] = "<br/>Erro: " + CustomFunctions.getErrorMessageFromException(ex);
                 if ((certeza) && (string.IsNullOrEmpty(tmpError)))
                     return RedirectToAction("List");
                 else
@@ -341,7 +341,7 @@ namespace IntuitiveFramework.Controllers
             {
                 if (readdropdown != null)
                     readdropdown();
-                this.ViewData["Erro"] = "<br/>Erro: " + ex.Message;
+                this.ViewData["Erro"] = "<br/>Erro: " + CustomFunctions.getErrorMessageFromException(ex);
                 return View();
             }
         }
@@ -370,7 +370,7 @@ namespace IntuitiveFramework.Controllers
             }
             catch (Exception ex)
             {
-                this.ViewData["Erro"] = "<br/>Erro: " + ex.Message;
+                this.ViewData["Erro"] = "<br/>Erro: " + CustomFunctions.getErrorMessageFromException(ex);
                 return View();
             }
         }        

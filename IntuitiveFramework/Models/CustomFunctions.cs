@@ -69,5 +69,10 @@ namespace IntuitiveFramework.Models
             byte[] utf8Array = Encoding.Convert(Encoding.ASCII, Encoding.UTF8, byteArray);
             return utf8Text.GetString(utf8Array);
         }
+
+        public static string getErrorMessageFromException(Exception ex)
+        {
+            return (ex.InnerException == null) ? ex.Message : ex.InnerException.Message;
+        }
     }
 }
