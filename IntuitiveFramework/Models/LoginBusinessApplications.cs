@@ -335,13 +335,14 @@ namespace IntuitiveFramework.Models
             estabs = null;
             try
             {
-                estabs = objUsuario.GrupoUsuarios.Select(x => new ValDescr
-                                                                {
-                                                                    Id = (x.Estabelecimentos == null) ? -1 : x.IdEstabelecimento.Value,
-                                                                    Descricao = (x.Estabelecimentos == null) ? "" : x.Estabelecimentos.NomeFantasia
-                                                                }
-                                                         ).Distinct().
-                                                           ToList();
+                var estabelecimentos = objUsuario.GrupoUsuarios.Select(s => s.Estabelecimentos).Distinct();
+                estabs = estabelecimentos.Select(x => new ValDescr
+                                                    {
+                                                        Id = x.Id,
+                                                        Descricao = x.NomeFantasia
+                                                    }
+                                                ).Distinct().
+                                                ToList();
 
                 return true;
             }

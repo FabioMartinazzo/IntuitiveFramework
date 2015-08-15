@@ -44,7 +44,9 @@ namespace IntuitiveFramework.Controllers
         {
             return base.List<Usuarios, string>(this._permissionCheck, collection,
                                                                       x => x.Nome.Contains(collection["NomePesquisa"]) && 
-                                                                           x.IdSistema == base._idSistema, y => y.Nome);
+                                                                           x.IdSistema == base._idSistema &&
+                                                                           (x.GrupoUsuarios.Any(g => g.IdEstabelecimento == (int)Session["IdEstabelecimento"])
+                                                                           || !x.GrupoUsuarios.Any()), y => y.Nome);
         }
 
         public ActionResult Create()

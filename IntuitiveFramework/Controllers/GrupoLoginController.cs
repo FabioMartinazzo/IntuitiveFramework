@@ -12,12 +12,13 @@ namespace IntuitiveFramework.Controllers
     {
         private void PopulaViewDatasUsuariosVinculados(int idGrupo)
         {
-            List<Usuarios> allUsers = bdInstance.Usuarios.ToList();
+            int idEstabelecimento = (int)Session["IdEstabelecimento"];
+            List<Usuarios> allUsers = bdInstance.Usuarios.Where(x => x.GrupoUsuarios.Any(g => g.IdEstabelecimento == idEstabelecimento)).ToList();
             List<GrupoUsuarios> objGrupoUsuarios;
             foreach (var item in allUsers)
             {
                 objGrupoUsuarios = item.GrupoUsuarios.ToList();
-                this.ViewData["usr_" + item.Id.ToString()] = objGrupoUsuarios.Where(x => x.IdGrupo.Equals(idGrupo) && x.IdEstabelecimento == (int)Session["IdEstabelecimento"]).Count() > 0;
+                this.ViewData["usr_" + item.Id.ToString()] = objGrupoUsuarios.Where(x => x.IdGrupo.Equals(idGrupo) && x.IdEstabelecimento == idEstabelecimento).Count() > 0;
             }
         }
 

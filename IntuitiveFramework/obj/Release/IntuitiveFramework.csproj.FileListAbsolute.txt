@@ -1,0 +1,6 @@
+E:\PROJETOS\Versionados\IntuitiveFramework\IntuitiveFramework\bin\Release\IntuitiveFramework.dll.config
+E:\PROJETOS\Versionados\IntuitiveFramework\IntuitiveFramework\bin\Release\IntuitiveFramework.dll
+E:\PROJETOS\Versionados\IntuitiveFramework\IntuitiveFramework\bin\Release\IntuitiveFramework.pdb
+E:\PROJETOS\Versionados\IntuitiveFramework\IntuitiveFramework\obj\Release\ResolveAssemblyReference.cache
+E:\PROJETOS\Versionados\IntuitiveFramework\IntuitiveFramework\obj\Release\IntuitiveFramework.dll
+E:\PROJETOS\Versionados\IntuitiveFramework\IntuitiveFramework\obj\Release\IntuitiveFramework.pdb
