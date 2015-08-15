@@ -1,0 +1,15 @@
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\CadastrosLogin\bin\Release\CadastrosLogin.dll
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\CadastrosLogin\bin\Release\CadastrosLogin.pdb
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\CadastrosLogin\bin\Release\Cadastros.dll
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\CadastrosLogin\bin\Release\ControleDeLogin.dll
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\CadastrosLogin\bin\Release\IntuitiveEstruturas.dll
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\CadastrosLogin\bin\Release\Persistencia.dll
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\CadastrosLogin\bin\Release\IntuitiveFuncoes.dll
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\CadastrosLogin\bin\Release\Cadastros.pdb
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\CadastrosLogin\bin\Release\ControleDeLogin.pdb
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\CadastrosLogin\bin\Release\IntuitiveEstruturas.pdb
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\CadastrosLogin\bin\Release\Persistencia.pdb
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\CadastrosLogin\bin\Release\IntuitiveFuncoes.pdb
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\CadastrosLogin\obj\Release\ResolveAssemblyReference.cache
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\CadastrosLogin\obj\Release\CadastrosLogin.dll
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\CadastrosLogin\obj\Release\CadastrosLogin.pdb

@@ -1,0 +1,13 @@
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\Cadastros\bin\Release\Cadastros.dll
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\Cadastros\bin\Release\Cadastros.pdb
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\Cadastros\bin\Release\ControleDeLogin.dll
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\Cadastros\bin\Release\IntuitiveEstruturas.dll
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\Cadastros\bin\Release\IntuitiveFuncoes.dll
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\Cadastros\bin\Release\Persistencia.dll
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\Cadastros\bin\Release\ControleDeLogin.pdb
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\Cadastros\bin\Release\IntuitiveEstruturas.pdb
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\Cadastros\bin\Release\IntuitiveFuncoes.pdb
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\Cadastros\bin\Release\Persistencia.pdb
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\Cadastros\obj\Release\ResolveAssemblyReference.cache
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\Cadastros\obj\Release\Cadastros.dll
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\Cadastros\obj\Release\Cadastros.pdb

@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Persistencia" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="ControleDeLoginEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DadosEmails" EntityType="Persistencia.DadosEmails" />
+    <EntitySet Name="EmailConfigs" EntityType="Persistencia.EmailConfigs" />
+    <EntitySet Name="Estabelecimentos" EntityType="Persistencia.Estabelecimentos" />
+    <EntitySet Name="Grupos" EntityType="Persistencia.Grupos" />
+    <EntitySet Name="GrupoUsuarios" EntityType="Persistencia.GrupoUsuarios" />
+    <EntitySet Name="GrupoVisoes" EntityType="Persistencia.GrupoVisoes" />
+    <EntitySet Name="Permissao" EntityType="Persistencia.Permissao" />
+    <EntitySet Name="Sistemas" EntityType="Persistencia.Sistemas" />
+    <EntitySet Name="TipoPermissoesPorVisao" EntityType="Persistencia.TipoPermissoesPorVisao" />
+    <EntitySet Name="Usuarios" EntityType="Persistencia.Usuarios" />
+    <EntitySet Name="Visao" EntityType="Persistencia.Visao" />
+    <AssociationSet Name="FK_DadosEmails_EmailConfigs" Association="Persistencia.FK_DadosEmails_EmailConfigs">
+      <End Role="EmailConfigs" EntitySet="EmailConfigs" />
+      <End Role="DadosEmails" EntitySet="DadosEmails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmailConfigs_Estabelecimentos" Association="Persistencia.FK_EmailConfigs_Estabelecimentos">
+      <End Role="Estabelecimentos" EntitySet="Estabelecimentos" />
+      <End Role="EmailConfigs" EntitySet="EmailConfigs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estabelecimentos_Sistemas" Association="Persistencia.FK_Estabelecimentos_Sistemas">
+      <End Role="Sistemas" EntitySet="Sistemas" />
+      <End Role="Estabelecimentos" EntitySet="Estabelecimentos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GrupoUsuarios_Estabelecimentos" Association="Persistencia.FK_GrupoUsuarios_Estabelecimentos">
+      <End Role="Estabelecimentos" EntitySet="Estabelecimentos" />
+      <End Role="GrupoUsuarios" EntitySet="GrupoUsuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Grupos_Sistemas" Association="Persistencia.FK_Grupos_Sistemas">
+      <End Role="Sistemas" EntitySet="Sistemas" />
+      <End Role="Grupos" EntitySet="Grupos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GrupoUsuarios_Grupos" Association="Persistencia.FK_GrupoUsuarios_Grupos">
+      <End Role="Grupos" EntitySet="Grupos" />
+      <End Role="GrupoUsuarios" EntitySet="GrupoUsuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GrupoVisoes_Grupos" Association="Persistencia.FK_GrupoVisoes_Grupos">
+      <End Role="Grupos" EntitySet="Grupos" />
+      <End Role="GrupoVisoes" EntitySet="GrupoVisoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GrupoUsuarios_Usuarios" Association="Persistencia.FK_GrupoUsuarios_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="GrupoUsuarios" EntitySet="GrupoUsuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GrupoVisoes_Visao" Association="Persistencia.FK_GrupoVisoes_Visao">
+      <End Role="Visao" EntitySet="Visao" />
+      <End Role="GrupoVisoes" EntitySet="GrupoVisoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Permissao_GrupoVisoes" Association="Persistencia.FK_Permissao_GrupoVisoes">
+      <End Role="GrupoVisoes" EntitySet="GrupoVisoes" />
+      <End Role="Permissao" EntitySet="Permissao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_Sistemas" Association="Persistencia.FK_Usuarios_Sistemas">
+      <End Role="Sistemas" EntitySet="Sistemas" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Visao_Sistemas" Association="Persistencia.FK_Visao_Sistemas">
+      <End Role="Sistemas" EntitySet="Sistemas" />
+      <End Role="Visao" EntitySet="Visao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Visao_TipoPermissoesPorVisao" Association="Persistencia.FK_Visao_TipoPermissoesPorVisao">
+      <End Role="TipoPermissoesPorVisao" EntitySet="TipoPermissoesPorVisao" />
+      <End Role="Visao" EntitySet="Visao" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="DadosEmails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="1500" Unicode="false" FixedLength="false" />
+    <Property Name="Tipo" Type="Int32" Nullable="false" />
+    <Property Name="IdEmailConfigs" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="EmailConfigs" Relationship="Persistencia.FK_DadosEmails_EmailConfigs" FromRole="DadosEmails" ToRole="EmailConfigs" />
+  </EntityType>
+  <EntityType Name="EmailConfigs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SmtpHost" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Pop3Host" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="UsaSsl" Type="Boolean" Nullable="false" />
+    <Property Name="UsaAutenticacaoPop" Type="Boolean" Nullable="false" />
+    <Property Name="IdEstabelecimento" Type="Int32" Nullable="false" />
+    <Property Name="Porta" Type="Int32" />
+    <NavigationProperty Name="DadosEmails" Relationship="Persistencia.FK_DadosEmails_EmailConfigs" FromRole="EmailConfigs" ToRole="DadosEmails" />
+    <NavigationProperty Name="Estabelecimentos" Relationship="Persistencia.FK_EmailConfigs_Estabelecimentos" FromRole="EmailConfigs" ToRole="Estabelecimentos" />
+  </EntityType>
+  <EntityType Name="Estabelecimentos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RazaoSocial" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+    <Property Name="NomeFantasia" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+    <Property Name="CNPJ" Type="String" Nullable="false" MaxLength="18" Unicode="false" FixedLength="false" />
+    <Property Name="InscricaoEstadual" Type="String" MaxLength="18" Unicode="false" FixedLength="false" />
+    <Property Name="InscricaoMunicipal" Type="String" MaxLength="18" Unicode="false" FixedLength="false" />
+    <Property Name="Logradouro" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Endereco" Type="String" Nullable="false" MaxLength="1000" Unicode="false" FixedLength="false" />
+    <Property Name="Bairro" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Cidade" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Estado" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
+    <Property Name="CEP" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Fone" Type="String" Nullable="false" MaxLength="14" Unicode="false" FixedLength="false" />
+    <Property Name="Fax" Type="String" MaxLength="14" Unicode="false" FixedLength="false" />
+    <Property Name="Celular" Type="String" MaxLength="14" Unicode="false" FixedLength="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Numero" Type="Int32" Nullable="false" />
+    <Property Name="Complemento" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CodMunicipio" Type="Int32" Nullable="false" />
+    <Property Name="AliasConnection" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="IdSistema" Type="Int32" Nullable="false" />
+    <Property Name="LogoTop" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="EmailConfigs" Relationship="Persistencia.FK_EmailConfigs_Estabelecimentos" FromRole="Estabelecimentos" ToRole="EmailConfigs" />
+    <NavigationProperty Name="Sistemas" Relationship="Persistencia.FK_Estabelecimentos_Sistemas" FromRole="Estabelecimentos" ToRole="Sistemas" />
+    <NavigationProperty Name="GrupoUsuarios" Relationship="Persistencia.FK_GrupoUsuarios_Estabelecimentos" FromRole="Estabelecimentos" ToRole="GrupoUsuarios" />
+  </EntityType>
+  <EntityType Name="Grupos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="IdSistema" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Sistemas" Relationship="Persistencia.FK_Grupos_Sistemas" FromRole="Grupos" ToRole="Sistemas" />
+    <NavigationProperty Name="GrupoUsuarios" Relationship="Persistencia.FK_GrupoUsuarios_Grupos" FromRole="Grupos" ToRole="GrupoUsuarios" />
+    <NavigationProperty Name="GrupoVisoes" Relationship="Persistencia.FK_GrupoVisoes_Grupos" FromRole="Grupos" ToRole="GrupoVisoes" />
+  </EntityType>
+  <EntityType Name="GrupoUsuarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+    <Property Name="IdGrupo" Type="Int32" Nullable="false" />
+    <Property Name="IdEstabelecimento" Type="Int32" />
+    <NavigationProperty Name="Estabelecimentos" Relationship="Persistencia.FK_GrupoUsuarios_Estabelecimentos" FromRole="GrupoUsuarios" ToRole="Estabelecimentos" />
+    <NavigationProperty Name="Grupos" Relationship="Persistencia.FK_GrupoUsuarios_Grupos" FromRole="GrupoUsuarios" ToRole="Grupos" />
+    <NavigationProperty Name="Usuarios" Relationship="Persistencia.FK_GrupoUsuarios_Usuarios" FromRole="GrupoUsuarios" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="GrupoVisoes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdGrupo" Type="Int32" Nullable="false" />
+    <Property Name="IdVisao" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Grupos" Relationship="Persistencia.FK_GrupoVisoes_Grupos" FromRole="GrupoVisoes" ToRole="Grupos" />
+    <NavigationProperty Name="Visao" Relationship="Persistencia.FK_GrupoVisoes_Visao" FromRole="GrupoVisoes" ToRole="Visao" />
+    <NavigationProperty Name="Permissao" Relationship="Persistencia.FK_Permissao_GrupoVisoes" FromRole="GrupoVisoes" ToRole="Permissao" />
+  </EntityType>
+  <EntityType Name="Permissao">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tipo" Type="Int32" Nullable="false" />
+    <Property Name="IdGrupoVisoes" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="GrupoVisoes" Relationship="Persistencia.FK_Permissao_GrupoVisoes" FromRole="Permissao" ToRole="GrupoVisoes" />
+  </EntityType>
+  <EntityType Name="Sistemas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Estabelecimentos" Relationship="Persistencia.FK_Estabelecimentos_Sistemas" FromRole="Sistemas" ToRole="Estabelecimentos" />
+    <NavigationProperty Name="Grupos" Relationship="Persistencia.FK_Grupos_Sistemas" FromRole="Sistemas" ToRole="Grupos" />
+    <NavigationProperty Name="Usuarios" Relationship="Persistencia.FK_Usuarios_Sistemas" FromRole="Sistemas" ToRole="Usuarios" />
+    <NavigationProperty Name="Visao" Relationship="Persistencia.FK_Visao_Sistemas" FromRole="Sistemas" ToRole="Visao" />
+  </EntityType>
+  <EntityType Name="TipoPermissoesPorVisao">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Create" Type="Boolean" Nullable="false" />
+    <Property Name="Delete" Type="Boolean" Nullable="false" />
+    <Property Name="Edit" Type="Boolean" Nullable="false" />
+    <Property Name="List" Type="Boolean" Nullable="false" />
+    <Property Name="Details" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Visao" Relationship="Persistencia.FK_Visao_TipoPermissoesPorVisao" FromRole="TipoPermissoesPorVisao" ToRole="Visao" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Senha" Type="String" Nullable="false" MaxLength="1024" Unicode="false" FixedLength="false" />
+    <Property Name="DataCriacao" Type="DateTime" Nullable="false" />
+    <Property Name="DataInativacao" Type="DateTime" />
+    <Property Name="Bloqueado" Type="Boolean" Nullable="false" />
+    <Property Name="IdSistema" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="GrupoUsuarios" Relationship="Persistencia.FK_GrupoUsuarios_Usuarios" FromRole="Usuarios" ToRole="GrupoUsuarios" />
+    <NavigationProperty Name="Sistemas" Relationship="Persistencia.FK_Usuarios_Sistemas" FromRole="Usuarios" ToRole="Sistemas" />
+  </EntityType>
+  <EntityType Name="Visao">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="IdTipoPermissoesPorVisao" Type="Int32" Nullable="false" />
+    <Property Name="IdSistema" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="GrupoVisoes" Relationship="Persistencia.FK_GrupoVisoes_Visao" FromRole="Visao" ToRole="GrupoVisoes" />
+    <NavigationProperty Name="Sistemas" Relationship="Persistencia.FK_Visao_Sistemas" FromRole="Visao" ToRole="Sistemas" />
+    <NavigationProperty Name="TipoPermissoesPorVisao" Relationship="Persistencia.FK_Visao_TipoPermissoesPorVisao" FromRole="Visao" ToRole="TipoPermissoesPorVisao" />
+  </EntityType>
+  <Association Name="FK_DadosEmails_EmailConfigs">
+    <End Role="EmailConfigs" Type="Persistencia.EmailConfigs" Multiplicity="1" />
+    <End Role="DadosEmails" Type="Persistencia.DadosEmails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmailConfigs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DadosEmails">
+        <PropertyRef Name="IdEmailConfigs" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmailConfigs_Estabelecimentos">
+    <End Role="Estabelecimentos" Type="Persistencia.Estabelecimentos" Multiplicity="1" />
+    <End Role="EmailConfigs" Type="Persistencia.EmailConfigs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estabelecimentos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmailConfigs">
+        <PropertyRef Name="IdEstabelecimento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estabelecimentos_Sistemas">
+    <End Role="Sistemas" Type="Persistencia.Sistemas" Multiplicity="1" />
+    <End Role="Estabelecimentos" Type="Persistencia.Estabelecimentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sistemas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estabelecimentos">
+        <PropertyRef Name="IdSistema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GrupoUsuarios_Estabelecimentos">
+    <End Role="Estabelecimentos" Type="Persistencia.Estabelecimentos" Multiplicity="0..1" />
+    <End Role="GrupoUsuarios" Type="Persistencia.GrupoUsuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estabelecimentos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GrupoUsuarios">
+        <PropertyRef Name="IdEstabelecimento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Grupos_Sistemas">
+    <End Role="Sistemas" Type="Persistencia.Sistemas" Multiplicity="1" />
+    <End Role="Grupos" Type="Persistencia.Grupos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sistemas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Grupos">
+        <PropertyRef Name="IdSistema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GrupoUsuarios_Grupos">
+    <End Role="Grupos" Type="Persistencia.Grupos" Multiplicity="1" />
+    <End Role="GrupoUsuarios" Type="Persistencia.GrupoUsuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grupos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GrupoUsuarios">
+        <PropertyRef Name="IdGrupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GrupoVisoes_Grupos">
+    <End Role="Grupos" Type="Persistencia.Grupos" Multiplicity="1" />
+    <End Role="GrupoVisoes" Type="Persistencia.GrupoVisoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grupos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GrupoVisoes">
+        <PropertyRef Name="IdGrupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GrupoUsuarios_Usuarios">
+    <End Role="Usuarios" Type="Persistencia.Usuarios" Multiplicity="1" />
+    <End Role="GrupoUsuarios" Type="Persistencia.GrupoUsuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GrupoUsuarios">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GrupoVisoes_Visao">
+    <End Role="Visao" Type="Persistencia.Visao" Multiplicity="1" />
+    <End Role="GrupoVisoes" Type="Persistencia.GrupoVisoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Visao">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GrupoVisoes">
+        <PropertyRef Name="IdVisao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Permissao_GrupoVisoes">
+    <End Role="GrupoVisoes" Type="Persistencia.GrupoVisoes" Multiplicity="1" />
+    <End Role="Permissao" Type="Persistencia.Permissao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GrupoVisoes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Permissao">
+        <PropertyRef Name="IdGrupoVisoes" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_Sistemas">
+    <End Role="Sistemas" Type="Persistencia.Sistemas" Multiplicity="1" />
+    <End Role="Usuarios" Type="Persistencia.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sistemas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="IdSistema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Visao_Sistemas">
+    <End Role="Sistemas" Type="Persistencia.Sistemas" Multiplicity="1" />
+    <End Role="Visao" Type="Persistencia.Visao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sistemas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Visao">
+        <PropertyRef Name="IdSistema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Visao_TipoPermissoesPorVisao">
+    <End Role="TipoPermissoesPorVisao" Type="Persistencia.TipoPermissoesPorVisao" Multiplicity="1" />
+    <End Role="Visao" Type="Persistencia.Visao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPermissoesPorVisao">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Visao">
+        <PropertyRef Name="IdTipoPermissoesPorVisao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

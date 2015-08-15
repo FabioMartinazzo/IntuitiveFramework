@@ -1,0 +1,7 @@
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\IntuitiveEstruturas\bin\Release\IntuitiveEstruturas.dll
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\IntuitiveEstruturas\bin\Release\IntuitiveEstruturas.pdb
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\IntuitiveEstruturas\bin\Release\Persistencia.dll
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\IntuitiveEstruturas\bin\Release\Persistencia.pdb
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\IntuitiveEstruturas\obj\Release\ResolveAssemblyReference.cache
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\IntuitiveEstruturas\obj\Release\IntuitiveEstruturas.dll
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\IntuitiveEstruturas\obj\Release\IntuitiveEstruturas.pdb

@@ -22,7 +22,7 @@ namespace ControleDeLogin.Controllers
             if (!LoginBusinessApplications.diferentesEstabsGruposUsuarios(ref objUsuario, out estabs))
                 throw new Exception("Aconteceu um erro ao tentar selecionar os diferentes estabelecimentos pertencentes a este usuário!");
             ViewData["Estabelecimentos"] = new SelectList(estabs, "Id", "Descricao");
-            return View();
+            return View("Index");
         }
 
         protected ActionResult SelecionarEstab(FormCollection collection)

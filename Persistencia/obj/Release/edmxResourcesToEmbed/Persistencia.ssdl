@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Persistencia.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="PersistenciaStoreContainer">
+    <EntitySet Name="DadosEmails" EntityType="Persistencia.Store.DadosEmails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EmailConfigs" EntityType="Persistencia.Store.EmailConfigs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Estabelecimentos" EntityType="Persistencia.Store.Estabelecimentos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Grupos" EntityType="Persistencia.Store.Grupos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GrupoUsuarios" EntityType="Persistencia.Store.GrupoUsuarios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GrupoVisoes" EntityType="Persistencia.Store.GrupoVisoes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Permissao" EntityType="Persistencia.Store.Permissao" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sistemas" EntityType="Persistencia.Store.Sistemas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TipoPermissoesPorVisao" EntityType="Persistencia.Store.TipoPermissoesPorVisao" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Usuarios" EntityType="Persistencia.Store.Usuarios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Visao" EntityType="Persistencia.Store.Visao" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_DadosEmails_EmailConfigs" Association="Persistencia.Store.FK_DadosEmails_EmailConfigs">
+      <End Role="EmailConfigs" EntitySet="EmailConfigs" />
+      <End Role="DadosEmails" EntitySet="DadosEmails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmailConfigs_Estabelecimentos" Association="Persistencia.Store.FK_EmailConfigs_Estabelecimentos">
+      <End Role="Estabelecimentos" EntitySet="Estabelecimentos" />
+      <End Role="EmailConfigs" EntitySet="EmailConfigs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estabelecimentos_Sistemas" Association="Persistencia.Store.FK_Estabelecimentos_Sistemas">
+      <End Role="Sistemas" EntitySet="Sistemas" />
+      <End Role="Estabelecimentos" EntitySet="Estabelecimentos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Grupos_Sistemas" Association="Persistencia.Store.FK_Grupos_Sistemas">
+      <End Role="Sistemas" EntitySet="Sistemas" />
+      <End Role="Grupos" EntitySet="Grupos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GrupoUsuarios_Estabelecimentos" Association="Persistencia.Store.FK_GrupoUsuarios_Estabelecimentos">
+      <End Role="Estabelecimentos" EntitySet="Estabelecimentos" />
+      <End Role="GrupoUsuarios" EntitySet="GrupoUsuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GrupoUsuarios_Grupos" Association="Persistencia.Store.FK_GrupoUsuarios_Grupos">
+      <End Role="Grupos" EntitySet="Grupos" />
+      <End Role="GrupoUsuarios" EntitySet="GrupoUsuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GrupoUsuarios_Usuarios" Association="Persistencia.Store.FK_GrupoUsuarios_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="GrupoUsuarios" EntitySet="GrupoUsuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GrupoVisoes_Grupos" Association="Persistencia.Store.FK_GrupoVisoes_Grupos">
+      <End Role="Grupos" EntitySet="Grupos" />
+      <End Role="GrupoVisoes" EntitySet="GrupoVisoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GrupoVisoes_Visao" Association="Persistencia.Store.FK_GrupoVisoes_Visao">
+      <End Role="Visao" EntitySet="Visao" />
+      <End Role="GrupoVisoes" EntitySet="GrupoVisoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Permissao_GrupoVisoes" Association="Persistencia.Store.FK_Permissao_GrupoVisoes">
+      <End Role="GrupoVisoes" EntitySet="GrupoVisoes" />
+      <End Role="Permissao" EntitySet="Permissao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_Sistemas" Association="Persistencia.Store.FK_Usuarios_Sistemas">
+      <End Role="Sistemas" EntitySet="Sistemas" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Visao_Sistemas" Association="Persistencia.Store.FK_Visao_Sistemas">
+      <End Role="Sistemas" EntitySet="Sistemas" />
+      <End Role="Visao" EntitySet="Visao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Visao_TipoPermissoesPorVisao" Association="Persistencia.Store.FK_Visao_TipoPermissoesPorVisao">
+      <End Role="TipoPermissoesPorVisao" EntitySet="TipoPermissoesPorVisao" />
+      <End Role="Visao" EntitySet="Visao" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="DadosEmails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="Password" Type="varchar" Nullable="false" MaxLength="1500" />
+    <Property Name="Tipo" Type="int" Nullable="false" />
+    <Property Name="IdEmailConfigs" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmailConfigs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SmtpHost" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Pop3Host" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="UsaSsl" Type="bit" Nullable="false" />
+    <Property Name="UsaAutenticacaoPop" Type="bit" Nullable="false" />
+    <Property Name="IdEstabelecimento" Type="int" Nullable="false" />
+    <Property Name="Porta" Type="int" />
+  </EntityType>
+  <EntityType Name="Estabelecimentos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RazaoSocial" Type="varchar" MaxLength="300" />
+    <Property Name="NomeFantasia" Type="varchar" MaxLength="300" />
+    <Property Name="CNPJ" Type="varchar" Nullable="false" MaxLength="18" />
+    <Property Name="InscricaoEstadual" Type="varchar" MaxLength="18" />
+    <Property Name="InscricaoMunicipal" Type="varchar" MaxLength="18" />
+    <Property Name="Logradouro" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Endereco" Type="varchar" Nullable="false" MaxLength="1000" />
+    <Property Name="Bairro" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Cidade" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Estado" Type="varchar" Nullable="false" MaxLength="2" />
+    <Property Name="CEP" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="Fone" Type="varchar" Nullable="false" MaxLength="14" />
+    <Property Name="Fax" Type="varchar" MaxLength="14" />
+    <Property Name="Celular" Type="varchar" MaxLength="14" />
+    <Property Name="Email" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Numero" Type="int" Nullable="false" />
+    <Property Name="Complemento" Type="varchar" MaxLength="50" />
+    <Property Name="CodMunicipio" Type="int" Nullable="false" />
+    <Property Name="AliasConnection" Type="varchar" MaxLength="50" />
+    <Property Name="IdSistema" Type="int" Nullable="false" />
+    <Property Name="LogoTop" Type="varbinary(max)" />
+    <Property Name="Logo" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Grupos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="IdSistema" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GrupoUsuarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="IdUsuario" Type="int" Nullable="false" />
+    <Property Name="IdGrupo" Type="int" Nullable="false" />
+    <Property Name="IdEstabelecimento" Type="int" />
+  </EntityType>
+  <EntityType Name="GrupoVisoes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="IdGrupo" Type="int" Nullable="false" />
+    <Property Name="IdVisao" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Permissao">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Tipo" Type="int" Nullable="false" />
+    <Property Name="IdGrupoVisoes" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sistemas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TipoPermissoesPorVisao">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Create" Type="bit" Nullable="false" />
+    <Property Name="Delete" Type="bit" Nullable="false" />
+    <Property Name="Edit" Type="bit" Nullable="false" />
+    <Property Name="List" Type="bit" Nullable="false" />
+    <Property Name="Details" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="Nome" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Senha" Type="varchar" Nullable="false" MaxLength="1024" />
+    <Property Name="DataCriacao" Type="date" Nullable="false" />
+    <Property Name="DataInativacao" Type="date" />
+    <Property Name="Bloqueado" Type="bit" Nullable="false" />
+    <Property Name="IdSistema" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Visao">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="IdTipoPermissoesPorVisao" Type="int" Nullable="false" />
+    <Property Name="IdSistema" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_DadosEmails_EmailConfigs">
+    <End Role="EmailConfigs" Type="Persistencia.Store.EmailConfigs" Multiplicity="1" />
+    <End Role="DadosEmails" Type="Persistencia.Store.DadosEmails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmailConfigs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DadosEmails">
+        <PropertyRef Name="IdEmailConfigs" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmailConfigs_Estabelecimentos">
+    <End Role="Estabelecimentos" Type="Persistencia.Store.Estabelecimentos" Multiplicity="1" />
+    <End Role="EmailConfigs" Type="Persistencia.Store.EmailConfigs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estabelecimentos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmailConfigs">
+        <PropertyRef Name="IdEstabelecimento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estabelecimentos_Sistemas">
+    <End Role="Sistemas" Type="Persistencia.Store.Sistemas" Multiplicity="1" />
+    <End Role="Estabelecimentos" Type="Persistencia.Store.Estabelecimentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sistemas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estabelecimentos">
+        <PropertyRef Name="IdSistema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Grupos_Sistemas">
+    <End Role="Sistemas" Type="Persistencia.Store.Sistemas" Multiplicity="1" />
+    <End Role="Grupos" Type="Persistencia.Store.Grupos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sistemas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Grupos">
+        <PropertyRef Name="IdSistema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GrupoUsuarios_Estabelecimentos">
+    <End Role="Estabelecimentos" Type="Persistencia.Store.Estabelecimentos" Multiplicity="0..1" />
+    <End Role="GrupoUsuarios" Type="Persistencia.Store.GrupoUsuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estabelecimentos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GrupoUsuarios">
+        <PropertyRef Name="IdEstabelecimento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GrupoUsuarios_Grupos">
+    <End Role="Grupos" Type="Persistencia.Store.Grupos" Multiplicity="1" />
+    <End Role="GrupoUsuarios" Type="Persistencia.Store.GrupoUsuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grupos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GrupoUsuarios">
+        <PropertyRef Name="IdGrupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GrupoUsuarios_Usuarios">
+    <End Role="Usuarios" Type="Persistencia.Store.Usuarios" Multiplicity="1" />
+    <End Role="GrupoUsuarios" Type="Persistencia.Store.GrupoUsuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GrupoUsuarios">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GrupoVisoes_Grupos">
+    <End Role="Grupos" Type="Persistencia.Store.Grupos" Multiplicity="1" />
+    <End Role="GrupoVisoes" Type="Persistencia.Store.GrupoVisoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grupos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GrupoVisoes">
+        <PropertyRef Name="IdGrupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GrupoVisoes_Visao">
+    <End Role="Visao" Type="Persistencia.Store.Visao" Multiplicity="1" />
+    <End Role="GrupoVisoes" Type="Persistencia.Store.GrupoVisoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Visao">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GrupoVisoes">
+        <PropertyRef Name="IdVisao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Permissao_GrupoVisoes">
+    <End Role="GrupoVisoes" Type="Persistencia.Store.GrupoVisoes" Multiplicity="1" />
+    <End Role="Permissao" Type="Persistencia.Store.Permissao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GrupoVisoes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Permissao">
+        <PropertyRef Name="IdGrupoVisoes" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_Sistemas">
+    <End Role="Sistemas" Type="Persistencia.Store.Sistemas" Multiplicity="1" />
+    <End Role="Usuarios" Type="Persistencia.Store.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sistemas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="IdSistema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Visao_Sistemas">
+    <End Role="Sistemas" Type="Persistencia.Store.Sistemas" Multiplicity="1" />
+    <End Role="Visao" Type="Persistencia.Store.Visao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sistemas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Visao">
+        <PropertyRef Name="IdSistema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Visao_TipoPermissoesPorVisao">
+    <End Role="TipoPermissoesPorVisao" Type="Persistencia.Store.TipoPermissoesPorVisao" Multiplicity="1" />
+    <End Role="Visao" Type="Persistencia.Store.Visao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPermissoesPorVisao">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Visao">
+        <PropertyRef Name="IdTipoPermissoesPorVisao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

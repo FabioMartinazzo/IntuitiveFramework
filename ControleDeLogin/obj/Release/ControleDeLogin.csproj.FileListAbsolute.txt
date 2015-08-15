@@ -1,0 +1,10 @@
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\ControleDeLogin\bin\Release\ControleDeLogin.dll.config
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\ControleDeLogin\bin\Release\ControleDeLogin.dll
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\ControleDeLogin\bin\Release\ControleDeLogin.pdb
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\ControleDeLogin\bin\Release\IntuitiveEstruturas.dll
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\ControleDeLogin\bin\Release\Persistencia.dll
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\ControleDeLogin\bin\Release\IntuitiveEstruturas.pdb
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\ControleDeLogin\bin\Release\Persistencia.pdb
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\ControleDeLogin\obj\Release\ResolveAssemblyReference.cache
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\ControleDeLogin\obj\Release\ControleDeLogin.dll
+E:\PROJETOS\Versionados\IntuitiveFrameworkV3\ControleDeLogin\obj\Release\ControleDeLogin.pdb
